@@ -1,0 +1,17 @@
+
+> malvie@1.0.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+- Environments: .env
+✓ Ready in 503ms
+
+ GET /shop 200 in 532ms (next.js: 243ms, application-code: 288ms)
+ GET /api/products?activeOnly=true 200 in 198ms (next.js: 127ms, application-code: 71ms)
+ GET /product/cmp4jq3qm000el9qk7j5czrgv 200 in 1464ms (next.js: 1412ms, application-code: 52ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /api/products/cmp4jq3qm000el9qk7j5czrgv 200 in 1006ms (next.js: 995ms, application-code: 12ms)
+ GET /api/products/cmp4jq3qm000el9qk7j5czrgv 200 in 27ms (next.js: 18ms, application-code: 9ms)
+ GET /checkout 200 in 580ms (next.js: 464ms, application-code: 116ms)

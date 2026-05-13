@@ -172,17 +172,17 @@ export default function CheckoutPage() {
               </div>
             ))}
             <div style={{ borderTop: "0.5px solid var(--light-border)", marginTop: "16px", paddingTop: "16px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px", fontSize: "14px" }}>
+              <div className="summary-row">
                 <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px", fontSize: "14px" }}>
+              <div className="summary-row">
                 <span>Shipping</span><span>{shipping === 0 ? "FREE" : `LKR ${shipping.toLocaleString()}`}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px", fontSize: "14px" }}>
+              <div className="summary-row">
                 <span>Tax (5%)</span><span>LKR {tax.toLocaleString()}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", fontWeight: "bold", fontSize: "18px", marginTop: "12px", paddingTop: "12px", borderTop: "1px solid var(--light-border)" }}>
-                <span>Total</span><span style={{ color: "var(--deep-violet)" }}>LKR {total.toLocaleString()}</span>
+              <div className="summary-total">
+                <span>Total</span><span className="total-value">LKR {total.toLocaleString()}</span>
               </div>
             </div>
             <p style={{ fontSize: "12px", textAlign: "center", marginTop: "16px", color: "var(--mid-gray)" }}>

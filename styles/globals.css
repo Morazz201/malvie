@@ -1617,3 +1617,24 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+/* Checkout Summary Styles */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--light-border);
+}
+
+.total-value {
+  color: var(--deep-violet);
+}
