@@ -487,6 +487,7 @@ export default function CheckoutPage() {
                 <span>Total</span><span className="order-summary-total-price">LKR {total.toLocaleString()}</span>
               </div>
             </div>
+            <p className="checkout-terms">
             <p className="order-summary-footer">
               By placing an order, you agree to our <Link href="/terms" style={{ color: "var(--orchid)" }}>Terms</Link> and <Link href="/privacy" style={{ color: "var(--orchid)" }}>Privacy Policy</Link>.
             <div className="checkout-summary-totals">

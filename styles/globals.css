@@ -1664,6 +1664,9 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+
+/* Checkout Terms styles */
+.checkout-terms {
 /* Checkout Summary Styles */
 .summary-row {
 
@@ -2004,6 +2007,10 @@ a.btn-primary, a.btn-small {
   text-align: center;
   margin-top: 16px;
   color: var(--mid-gray);
+}
+
+.checkout-terms a {
+  color: var(--orchid);
 }
 .order-terms a {
   color: var(--orchid);
