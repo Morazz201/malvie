@@ -1617,6 +1617,7 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+/* ─────────── CHECKOUT ─────────── */
 /* ─────────── FORMS AND CHECKOUT ─────────── */
 .checkout-wrap {
   padding: 140px 40px 80px;
@@ -1624,6 +1625,7 @@ a.btn-primary, a.btn-small {
   margin: 0 auto;
 }
 
+.checkout-heading {
 .checkout-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 48px;
@@ -1638,6 +1640,7 @@ a.btn-primary, a.btn-small {
   gap: 50px;
 }
 
+.checkout-section {
 .checkout-panel {
   background: white;
   border: 0.5px solid var(--light-border);
@@ -1645,6 +1648,7 @@ a.btn-primary, a.btn-small {
   margin-bottom: 24px;
 }
 
+.checkout-section-title {
 .checkout-panel-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
@@ -1654,6 +1658,18 @@ a.btn-primary, a.btn-small {
   border-bottom: 0.5px solid var(--light-border);
 }
 
+.checkout-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.checkout-form-group {
+  margin-bottom: 20px;
+}
+
+.checkout-label {
 .form-group {
   margin-bottom: 20px;
 }
@@ -1672,6 +1688,7 @@ a.btn-primary, a.btn-small {
   color: var(--deep-violet);
 }
 
+.checkout-input {
 .form-input {
   width: 100%;
   padding: 12px;
@@ -1679,6 +1696,27 @@ a.btn-primary, a.btn-small {
   font-family: inherit;
 }
 
+.payment-options {
+  /* Class already defined in JS, applying styles here */
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.checkout-submit-wrap {
+  margin-top: 24px;
+}
+
+.checkout-submit-btn {
+  width: 100%;
+}
+
+.order-summary-box {
 .checkout-summary {
   background: white;
   border: 0.5px solid var(--light-border);
@@ -1688,6 +1726,7 @@ a.btn-primary, a.btn-small {
   top: 100px;
 }
 
+.order-summary-title {
 .checkout-summary-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
@@ -1697,6 +1736,7 @@ a.btn-primary, a.btn-small {
   border-bottom: 0.5px solid var(--light-border);
 }
 
+.order-item-row {
 .checkout-summary-row {
   display: flex;
   justify-content: space-between;
@@ -1704,6 +1744,13 @@ a.btn-primary, a.btn-small {
   font-size: 14px;
 }
 
+.order-totals-section {
+  border-top: 0.5px solid var(--light-border);
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+.order-total-row {
 .checkout-summary-subrow {
   display: flex;
   justify-content: space-between;
@@ -1711,6 +1758,7 @@ a.btn-primary, a.btn-small {
   font-size: 14px;
 }
 
+.order-grand-total {
 .checkout-summary-divider {
   border-top: 0.5px solid var(--light-border);
   margin-top: 16px;
@@ -1727,6 +1775,60 @@ a.btn-primary, a.btn-small {
   border-top: 1px solid var(--light-border);
 }
 
+.order-grand-total-val {
+  color: var(--deep-violet);
+}
+
+.order-terms {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 16px;
+  color: var(--mid-gray);
+}
+
+.order-terms a {
+  color: var(--orchid);
+}
+
+/* Responsive styles for checkout */
+@media (max-width: 1024px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout-wrap {
+    padding: 100px 20px 60px;
+  }
+  .checkout-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.empty-checkout {
+  padding: 160px 40px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.empty-checkout-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.empty-checkout-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.empty-checkout-text {
+  margin-bottom: 32px;
+  color: var(--mid-gray);
+}
 @media (max-width: 1024px) {
   .checkout-grid {
     grid-template-columns: 1fr;

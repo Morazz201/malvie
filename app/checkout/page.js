@@ -27,10 +27,10 @@ export default function CheckoutPage() {
   // Redirect if cart empty
   if (cart.length === 0) {
     return (
-      <div className="empty-checkout" style={{ padding: "160px 40px", textAlign: "center", maxWidth: "600px", margin: "0 auto" }}>
-        <div style={{ fontSize: "80px", marginBottom: "24px" }}>🛒</div>
-        <h2 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "36px", fontStyle: "italic", marginBottom: "16px" }}>Your cart is empty</h2>
-        <p style={{ marginBottom: "32px", color: "var(--mid-gray)" }}>Add some beautiful pieces before checking out.</p>
+      <div className="empty-checkout">
+        <div className="empty-checkout-icon">🛒</div>
+        <h2 className="empty-checkout-heading">Your cart is empty</h2>
+        <p className="empty-checkout-text">Add some beautiful pieces before checking out.</p>
         <Link href="/shop" className="btn-primary">Continue Shopping</Link>
       </div>
     );
@@ -99,11 +99,40 @@ export default function CheckoutPage() {
     <>
       <Toast message={toastMsg} visible={!!toastMsg} onClose={() => setToastMsg("")} />
       <div className="checkout-wrap">
+        <h1 className="checkout-heading">Checkout</h1>
         <h1 className="checkout-title">Checkout</h1>
         
         <div className="checkout-grid">
           {/* Billing Form */}
           <form onSubmit={handleSubmit}>
+            <div className="checkout-section">
+              <h2 className="checkout-section-title">Billing Details</h2>
+              <div className="checkout-form-row">
+                <div>
+                  <label className="checkout-label">Full Name *</label>
+                  <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="checkout-input" />
+                </div>
+                <div>
+                  <label className="checkout-label">Email *</label>
+                  <input type="email" name="email" required value={formData.email} onChange={handleChange} className="checkout-input" />
+                </div>
+              </div>
+              <div className="checkout-form-group">
+                <label className="checkout-label">Phone *</label>
+                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="checkout-input" />
+              </div>
+              <div className="checkout-form-group">
+                <label className="checkout-label">Address *</label>
+                <input type="text" name="address" required value={formData.address} onChange={handleChange} className="checkout-input" />
+              </div>
+              <div className="checkout-form-row">
+                <div>
+                  <label className="checkout-label">City *</label>
+                  <input type="text" name="city" required value={formData.city} onChange={handleChange} className="checkout-input" />
+                </div>
+                <div>
+                  <label className="checkout-label">Postal Code</label>
+                  <input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} className="checkout-input" />
             <div className="checkout-panel">
               <h2 className="checkout-panel-title">Billing Details</h2>
               <div className="form-row">
@@ -136,18 +165,20 @@ export default function CheckoutPage() {
               </div>
             </div>
 
+            <div className="checkout-section">
+              <h2 className="checkout-section-title">Payment Method</h2>
             <div className="checkout-panel" style={{ marginBottom: "0" }}>
               <h2 className="checkout-panel-title">Payment Method</h2>
               <div className="payment-options">
-                <label style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px", cursor: "pointer" }}>
+                <label className="payment-option">
                   <input type="radio" name="paymentMethod" value="cod" checked={formData.paymentMethod === "cod"} onChange={handleChange} />
                   <span>Cash on Delivery (COD)</span>
                 </label>
-                <label style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px", cursor: "pointer" }}>
+                <label className="payment-option">
                   <input type="radio" name="paymentMethod" value="card" checked={formData.paymentMethod === "card"} onChange={handleChange} />
                   <span>Credit / Debit Card (coming soon)</span>
                 </label>
-                <label style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px", cursor: "pointer" }}>
+                <label className="payment-option">
                   <input type="radio" name="paymentMethod" value="bank" checked={formData.paymentMethod === "bank"} onChange={handleChange} />
                   <span>Bank Transfer (coming soon)</span>
                 </label>
@@ -155,14 +186,18 @@ export default function CheckoutPage() {
             </div>
 
             {/* Submit button inside form so Enter key works */}
-            <div style={{ marginTop: "24px" }}>
-              <button type="submit" disabled={isSubmitting} className="btn-primary" style={{ width: "100%", background: isSubmitting ? "var(--mid-gray)" : "var(--deep-violet)" }}>
+            <div className="checkout-submit-wrap">
+              <button type="submit" disabled={isSubmitting} className="btn-primary checkout-submit-btn" style={{ background: isSubmitting ? "var(--mid-gray)" : "var(--deep-violet)" }}>
                 {isSubmitting ? "Processing..." : "Place Order"}
               </button>
             </div>
           </form>
 
           {/* Order Summary */}
+          <div className="order-summary-box">
+            <div className="order-summary-title">Your Order</div>
+            {cart.map((item, idx) => (
+              <div key={idx} className="order-item-row">
           <div className="checkout-summary">
             <div className="checkout-summary-title">Your Order</div>
             {cart.map((item, idx) => (
@@ -171,6 +206,18 @@ export default function CheckoutPage() {
                 <span>LKR {(item.price * item.quantity).toLocaleString()}</span>
               </div>
             ))}
+            <div className="order-totals-section">
+              <div className="order-total-row">
+                <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>
+              </div>
+              <div className="order-total-row">
+                <span>Shipping</span><span>{shipping === 0 ? "FREE" : `LKR ${shipping.toLocaleString()}`}</span>
+              </div>
+              <div className="order-total-row">
+                <span>Tax (5%)</span><span>LKR {tax.toLocaleString()}</span>
+              </div>
+              <div className="order-grand-total">
+                <span>Total</span><span className="order-grand-total-val">LKR {total.toLocaleString()}</span>
             <div className="checkout-summary-divider">
               <div className="checkout-summary-subrow">
                 <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>
@@ -185,8 +232,8 @@ export default function CheckoutPage() {
                 <span>Total</span><span style={{ color: "var(--deep-violet)" }}>LKR {total.toLocaleString()}</span>
               </div>
             </div>
-            <p style={{ fontSize: "12px", textAlign: "center", marginTop: "16px", color: "var(--mid-gray)" }}>
-              By placing an order, you agree to our <Link href="/terms" style={{ color: "var(--orchid)" }}>Terms</Link> and <Link href="/privacy" style={{ color: "var(--orchid)" }}>Privacy Policy</Link>.
+            <p className="order-terms">
+              By placing an order, you agree to our <Link href="/terms">Terms</Link> and <Link href="/privacy">Privacy Policy</Link>.
             </p>
           </div>
         </div>
