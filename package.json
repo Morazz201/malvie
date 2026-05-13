@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "node --import ./test-runner.js --test"
     "test": "node run-tests.mjs"
     "test": "tsx --test \"app/**/*.test.js\""
     "test": "node --experimental-loader=./mock_loader.js --test"
