@@ -1,0 +1,11 @@
+
+> malvie@1.0.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+- Environments: .env
+✓ Ready in 516ms
+
+ GET /size-guide 200 in 3.8s (next.js: 3.2s, application-code: 512ms)

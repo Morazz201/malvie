@@ -3,6 +3,8 @@ export default function SizeGuide() {
     <div className="size-guide-container">
       <h1 className="size-guide-title">Size Guide</h1>
       <div className="size-guide-table-wrapper">
+      <h1 className="size-guide-heading">Size Guide</h1>
+      <div className="size-guide-table-wrap">
         <table className="size-guide-table">
           <thead>
             <tr>
@@ -11,6 +13,12 @@ export default function SizeGuide() {
               <th>Waist (in)</th>
               <th>Hip (in)</th>
             </tr>
+    <div className="info-page-wrap">
+      <h1 className="info-page-title" style={{ marginBottom: "32px" }}>Size Guide</h1>
+      <div style={{ overflowX: "auto" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "center" }}>
+          <thead style={{ background: "var(--soft-pastel)" }}>
+            <tr><th style={{ padding: "12px", border: "1px solid var(--light-border)" }}>Size</th><th style={{ padding: "12px", border: "1px solid var(--light-border)" }}>Bust (in)</th><th style={{ padding: "12px", border: "1px solid var(--light-border)" }}>Waist (in)</th><th style={{ padding: "12px", border: "1px solid var(--light-border)" }}>Hip (in)</th></tr>
           </thead>
           <tbody>
             <tr>
@@ -48,6 +56,9 @@ export default function SizeGuide() {
       </div>
       <p className="size-guide-note">
         All Malvie tees are oversized fit. For a more relaxed look, we recommend your usual size or size up once for an extra slouchy feel. For a fitted look, size down once.
+        All Malvie tees are oversized fit. For a more relaxed look, we recommend
+        your usual size or size up once for an extra slouchy feel. For a fitted
+        look, size down once.
       </p>
     </div>
   );
