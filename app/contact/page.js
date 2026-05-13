@@ -15,23 +15,23 @@ export default function Contact() {
   return (
     <>
       <Toast message={toastMsg} visible={!!toastMsg} onClose={() => setToastMsg("")} />
-      <div style={{ padding: "140px 40px 80px", maxWidth: "800px", margin: "0 auto" }}>
-        <h1 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "52px", fontWeight: "300", fontStyle: "italic", marginBottom: "24px" }}>Contact Us</h1>
+      <div className="info-page-wrap">
+        <h1 className="info-page-title">Contact Us</h1>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }}>
           <div>
-            <h2 style={{ fontSize: "18px", fontWeight: "500", marginBottom: "12px" }}>Get in Touch</h2>
-            <p style={{ marginBottom: "8px" }}>📧 <a href="mailto:hello@malvie.lk" style={{ color: "var(--orchid)" }}>hello@malvie.lk</a></p>
+            <h2 className="info-section-title">Get in Touch</h2>
+            <p style={{ marginBottom: "8px" }}>📧 <a href="mailto:hello@malvie.lk" className="info-link">hello@malvie.lk</a></p>
             <p>📞 +94 77 123 4567 (Mon-Fri, 10am-6pm)</p>
             <div style={{ marginTop: "24px" }}>
               <h3 style={{ fontSize: "16px", fontWeight: "500", marginBottom: "12px" }}>Follow Us</h3>
-              <a href="https://instagram.com/malvie.lk" target="_blank" style={{ marginRight: "16px", color: "var(--orchid)" }}>Instagram</a>
-              <a href="#" style={{ color: "var(--orchid)" }}>TikTok</a>
+              <a href="https://instagram.com/malvie.lk" target="_blank" className="info-link" style={{ marginRight: "16px" }}>Instagram</a>
+              <a href="#" className="info-link">TikTok</a>
             </div>
           </div>
-          <form onSubmit={handleSubmit}>
-            <input type="text" name="name" placeholder="Your name" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} style={{ width: "100%", padding: "12px", marginBottom: "16px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
-            <input type="email" name="email" placeholder="Your email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} style={{ width: "100%", padding: "12px", marginBottom: "16px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
-            <textarea name="message" placeholder="Your message" required rows="5" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} style={{ width: "100%", padding: "12px", marginBottom: "16px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }}></textarea>
+          <form onSubmit={handleSubmit} className="contact-form">
+            <input type="text" name="name" placeholder="Your name" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="form-input" />
+            <input type="email" name="email" placeholder="Your email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="form-input" />
+            <textarea name="message" placeholder="Your message" required rows="5" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="form-input"></textarea>
             <button type="submit" className="btn-primary">Send Message</button>
           </form>
         </div>

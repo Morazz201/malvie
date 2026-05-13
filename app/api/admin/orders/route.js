@@ -4,12 +4,12 @@ import { prisma } from "@/lib/prisma";
 export async function GET() {
   try {
     const orders = await prisma.order.findMany({
-      include: { customer: true },   // ✅ include customer relation
+      include: { customer: true }, // ✅ include customer relation
       orderBy: { createdAt: "desc" },
     });
 
     // Safely parse items JSON (handle potential errors)
-    const ordersWithParsedItems = orders.map(order => ({
+    const ordersWithParsedItems = orders.map((order) => ({
       ...order,
       items: (() => {
         try {
@@ -25,7 +25,7 @@ export async function GET() {
     console.error("GET /api/admin/orders error:", error);
     return NextResponse.json(
       { error: "Failed to fetch orders" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -42,7 +42,7 @@ export async function PUT(request) {
     console.error("PUT /api/admin/orders error:", error);
     return NextResponse.json(
       { error: "Failed to update order" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
