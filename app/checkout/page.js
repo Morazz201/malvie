@@ -27,10 +27,10 @@ export default function CheckoutPage() {
   // Redirect if cart empty
   if (cart.length === 0) {
     return (
-      <div className="empty-checkout" style={{ padding: "160px 40px", textAlign: "center", maxWidth: "600px", margin: "0 auto" }}>
-        <div style={{ fontSize: "80px", marginBottom: "24px" }}>🛒</div>
-        <h2 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "36px", fontStyle: "italic", marginBottom: "16px" }}>Your cart is empty</h2>
-        <p style={{ marginBottom: "32px", color: "var(--mid-gray)" }}>Add some beautiful pieces before checking out.</p>
+      <div className="empty-checkout">
+        <div className="empty-checkout-icon">🛒</div>
+        <h2 className="empty-checkout-heading">Your cart is empty</h2>
+        <p className="empty-checkout-text">Add some beautiful pieces before checking out.</p>
         <Link href="/shop" className="btn-primary">Continue Shopping</Link>
       </div>
     );
@@ -98,56 +98,56 @@ export default function CheckoutPage() {
   return (
     <>
       <Toast message={toastMsg} visible={!!toastMsg} onClose={() => setToastMsg("")} />
-      <div style={{ padding: "140px 40px 80px", maxWidth: "1200px", margin: "0 auto" }}>
-        <h1 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "48px", fontWeight: "300", fontStyle: "italic", marginBottom: "40px" }}>Checkout</h1>
+      <div className="checkout-wrap">
+        <h1 className="checkout-heading">Checkout</h1>
         
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 380px", gap: "50px" }}>
+        <div className="checkout-grid">
           {/* Billing Form */}
           <form onSubmit={handleSubmit}>
-            <div style={{ background: "white", border: "0.5px solid var(--light-border)", padding: "32px", marginBottom: "24px" }}>
-              <h2 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "22px", fontWeight: "300", marginBottom: "24px", paddingBottom: "12px", borderBottom: "0.5px solid var(--light-border)" }}>Billing Details</h2>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "20px" }}>
+            <div className="checkout-section">
+              <h2 className="checkout-section-title">Billing Details</h2>
+              <div className="checkout-form-row">
                 <div>
-                  <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Full Name *</label>
-                  <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                  <label className="checkout-label">Full Name *</label>
+                  <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="checkout-input" />
                 </div>
                 <div>
-                  <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Email *</label>
-                  <input type="email" name="email" required value={formData.email} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                  <label className="checkout-label">Email *</label>
+                  <input type="email" name="email" required value={formData.email} onChange={handleChange} className="checkout-input" />
                 </div>
               </div>
-              <div style={{ marginBottom: "20px" }}>
-                <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Phone *</label>
-                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+              <div className="checkout-form-group">
+                <label className="checkout-label">Phone *</label>
+                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="checkout-input" />
               </div>
-              <div style={{ marginBottom: "20px" }}>
-                <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Address *</label>
-                <input type="text" name="address" required value={formData.address} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+              <div className="checkout-form-group">
+                <label className="checkout-label">Address *</label>
+                <input type="text" name="address" required value={formData.address} onChange={handleChange} className="checkout-input" />
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "20px" }}>
+              <div className="checkout-form-row">
                 <div>
-                  <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>City *</label>
-                  <input type="text" name="city" required value={formData.city} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                  <label className="checkout-label">City *</label>
+                  <input type="text" name="city" required value={formData.city} onChange={handleChange} className="checkout-input" />
                 </div>
                 <div>
-                  <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Postal Code</label>
-                  <input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                  <label className="checkout-label">Postal Code</label>
+                  <input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} className="checkout-input" />
                 </div>
               </div>
             </div>
 
-            <div style={{ background: "white", border: "0.5px solid var(--light-border)", padding: "32px" }}>
-              <h2 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "22px", fontWeight: "300", marginBottom: "24px", paddingBottom: "12px", borderBottom: "0.5px solid var(--light-border)" }}>Payment Method</h2>
+            <div className="checkout-section">
+              <h2 className="checkout-section-title">Payment Method</h2>
               <div className="payment-options">
-                <label style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px", cursor: "pointer" }}>
+                <label className="payment-option">
                   <input type="radio" name="paymentMethod" value="cod" checked={formData.paymentMethod === "cod"} onChange={handleChange} />
                   <span>Cash on Delivery (COD)</span>
                 </label>
-                <label style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px", cursor: "pointer" }}>
+                <label className="payment-option">
                   <input type="radio" name="paymentMethod" value="card" checked={formData.paymentMethod === "card"} onChange={handleChange} />
                   <span>Credit / Debit Card (coming soon)</span>
                 </label>
-                <label style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px", cursor: "pointer" }}>
+                <label className="payment-option">
                   <input type="radio" name="paymentMethod" value="bank" checked={formData.paymentMethod === "bank"} onChange={handleChange} />
                   <span>Bank Transfer (coming soon)</span>
                 </label>
@@ -155,38 +155,38 @@ export default function CheckoutPage() {
             </div>
 
             {/* Submit button inside form so Enter key works */}
-            <div style={{ marginTop: "24px" }}>
-              <button type="submit" disabled={isSubmitting} className="btn-primary" style={{ width: "100%", background: isSubmitting ? "var(--mid-gray)" : "var(--deep-violet)" }}>
+            <div className="checkout-submit-wrap">
+              <button type="submit" disabled={isSubmitting} className="btn-primary checkout-submit-btn" style={{ background: isSubmitting ? "var(--mid-gray)" : "var(--deep-violet)" }}>
                 {isSubmitting ? "Processing..." : "Place Order"}
               </button>
             </div>
           </form>
 
           {/* Order Summary */}
-          <div style={{ background: "white", border: "0.5px solid var(--light-border)", padding: "32px", height: "fit-content", position: "sticky", top: "100px" }}>
-            <div style={{ fontFamily: "'Cormorant Garamond'", fontSize: "22px", fontWeight: "300", marginBottom: "24px", paddingBottom: "12px", borderBottom: "0.5px solid var(--light-border)" }}>Your Order</div>
+          <div className="order-summary-box">
+            <div className="order-summary-title">Your Order</div>
             {cart.map((item, idx) => (
-              <div key={idx} style={{ display: "flex", justifyContent: "space-between", marginBottom: "16px", fontSize: "14px" }}>
+              <div key={idx} className="order-item-row">
                 <span>{item.name} (x{item.quantity})</span>
                 <span>LKR {(item.price * item.quantity).toLocaleString()}</span>
               </div>
             ))}
-            <div style={{ borderTop: "0.5px solid var(--light-border)", marginTop: "16px", paddingTop: "16px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px", fontSize: "14px" }}>
+            <div className="order-totals-section">
+              <div className="order-total-row">
                 <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px", fontSize: "14px" }}>
+              <div className="order-total-row">
                 <span>Shipping</span><span>{shipping === 0 ? "FREE" : `LKR ${shipping.toLocaleString()}`}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px", fontSize: "14px" }}>
+              <div className="order-total-row">
                 <span>Tax (5%)</span><span>LKR {tax.toLocaleString()}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", fontWeight: "bold", fontSize: "18px", marginTop: "12px", paddingTop: "12px", borderTop: "1px solid var(--light-border)" }}>
-                <span>Total</span><span style={{ color: "var(--deep-violet)" }}>LKR {total.toLocaleString()}</span>
+              <div className="order-grand-total">
+                <span>Total</span><span className="order-grand-total-val">LKR {total.toLocaleString()}</span>
               </div>
             </div>
-            <p style={{ fontSize: "12px", textAlign: "center", marginTop: "16px", color: "var(--mid-gray)" }}>
-              By placing an order, you agree to our <Link href="/terms" style={{ color: "var(--orchid)" }}>Terms</Link> and <Link href="/privacy" style={{ color: "var(--orchid)" }}>Privacy Policy</Link>.
+            <p className="order-terms">
+              By placing an order, you agree to our <Link href="/terms">Terms</Link> and <Link href="/privacy">Privacy Policy</Link>.
             </p>
           </div>
         </div>
