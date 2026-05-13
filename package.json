@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "tsx --test \"app/**/*.test.js\""
     "test": "node --experimental-loader=./mock_loader.js --test"
     "test": "node --import \"data:text/javascript,import { register } from 'node:module'; import { pathToFileURL } from 'node:url'; register('./loader.js', pathToFileURL('./'));\" --test"
     "test": "tsx --test"
@@ -24,6 +25,10 @@
   },
   "devDependencies": {
     "@prisma/client": "^5.22.0",
+    "esbuild": "^0.28.0",
+    "prisma": "^5.22.0",
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.21.0"
     "@types/node": "^25.7.0",
     "@types/react": "^19.2.14",
     "prisma": "^5.22.0",
