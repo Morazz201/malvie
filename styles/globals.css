@@ -1513,6 +1513,62 @@ footer {
   .product-price { font-size: 13px; }
 }
 
+/* ─────────── CHECKOUT PAGE ─────────── */
+.checkout-order-summary {
+  background: white;
+  border: 0.5px solid var(--light-border);
+  padding: 32px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.checkout-summary-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 0.5px solid var(--light-border);
+}
+
+.checkout-summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.checkout-summary-totals {
+  border-top: 0.5px solid var(--light-border);
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+.checkout-summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.checkout-summary-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--light-border);
+}
+
+.checkout-terms {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 16px;
+  color: var(--mid-gray);
+}
+
 /* Buttons – global improvements */
 button, .btn, .btn-primary, .btn-ghost, .btn-small, .btn-checkout, .btn-continue, .reset-filters-btn {
   cursor: pointer;
