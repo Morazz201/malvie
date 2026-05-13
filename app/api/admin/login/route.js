@@ -14,7 +14,14 @@ export async function POST(request) {
     }
 
     if (password === adminSecret) {
-      return NextResponse.json({ success: true });
+      const response = NextResponse.json({ success: true });
+      response.cookies.set("admin_session", adminSecret, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        path: "/",
+      });
+      return response;
     } else {
       return NextResponse.json(
         { error: "Invalid password" },
