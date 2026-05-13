@@ -1,7 +1,7 @@
 export default function SizeGuide() {
   return (
-    <div style={{ padding: "140px 40px 80px", maxWidth: "800px", margin: "0 auto" }}>
-      <h1 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "52px", fontWeight: "300", fontStyle: "italic", marginBottom: "32px" }}>Size Guide</h1>
+    <div className="info-page-wrap">
+      <h1 className="info-page-title" style={{ marginBottom: "32px" }}>Size Guide</h1>
       <div style={{ overflowX: "auto" }}>
         <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "center" }}>
           <thead style={{ background: "var(--soft-pastel)" }}>

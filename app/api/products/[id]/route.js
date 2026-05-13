@@ -22,6 +22,14 @@ export async function GET(request, { params }) {
 export async function PUT(request, { params }) {
   try {
     const { id } = await params; // ✅ await the Promise
+    // Authentication check
+    const adminSession = request.cookies.get("admin_session")?.value;
+    const adminSecret = process.env.ADMIN_SECRET;
+    if (!adminSecret || adminSession !== adminSecret) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { id } = await params;                 // ✅ await the Promise
     const body = await request.json();
     const product = await prisma.product.update({
       where: { id },
@@ -39,6 +47,14 @@ export async function PUT(request, { params }) {
 export async function DELETE(request, { params }) {
   try {
     const { id } = await params; // ✅ await the Promise
+    // Authentication check
+    const adminSession = request.cookies.get("admin_session")?.value;
+    const adminSecret = process.env.ADMIN_SECRET;
+    if (!adminSecret || adminSession !== adminSecret) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { id } = await params;                 // ✅ await the Promise
     // Optional: log for debugging (now safe because id is resolved)
     console.log("DELETE called for id:", id);
 

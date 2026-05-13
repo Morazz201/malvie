@@ -14,6 +14,13 @@ export async function GET(request) {
 
 export async function POST(request) {
   try {
+    // Authentication check
+    const adminSession = request.cookies.get("admin_session")?.value;
+    const adminSecret = process.env.ADMIN_SECRET;
+    if (!adminSecret || adminSession !== adminSecret) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const body = await request.json();
     const product = await prisma.product.create({ data: body });
     return NextResponse.json(product, { status: 201 });
