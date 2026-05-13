@@ -1617,3 +1617,15 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+
+/* Checkout Terms styles */
+.checkout-terms {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 16px;
+  color: var(--mid-gray);
+}
+
+.checkout-terms a {
+  color: var(--orchid);
+}

@@ -185,8 +185,8 @@ export default function CheckoutPage() {
                 <span>Total</span><span style={{ color: "var(--deep-violet)" }}>LKR {total.toLocaleString()}</span>
               </div>
             </div>
-            <p style={{ fontSize: "12px", textAlign: "center", marginTop: "16px", color: "var(--mid-gray)" }}>
-              By placing an order, you agree to our <Link href="/terms" style={{ color: "var(--orchid)" }}>Terms</Link> and <Link href="/privacy" style={{ color: "var(--orchid)" }}>Privacy Policy</Link>.
+            <p className="checkout-terms">
+              By placing an order, you agree to our <Link href="/terms">Terms</Link> and <Link href="/privacy">Privacy Policy</Link>.
             </p>
           </div>
         </div>
