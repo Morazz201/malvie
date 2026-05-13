@@ -11,6 +11,12 @@ export default function SizeGuide() {
               <th>Waist (in)</th>
               <th>Hip (in)</th>
             </tr>
+    <div className="info-page-wrap">
+      <h1 className="info-page-title" style={{ marginBottom: "32px" }}>Size Guide</h1>
+      <div style={{ overflowX: "auto" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "center" }}>
+          <thead style={{ background: "var(--soft-pastel)" }}>
+            <tr><th style={{ padding: "12px", border: "1px solid var(--light-border)" }}>Size</th><th style={{ padding: "12px", border: "1px solid var(--light-border)" }}>Bust (in)</th><th style={{ padding: "12px", border: "1px solid var(--light-border)" }}>Waist (in)</th><th style={{ padding: "12px", border: "1px solid var(--light-border)" }}>Hip (in)</th></tr>
           </thead>
           <tbody>
             <tr>

@@ -1,0 +1,6 @@
+{
+  "name": "next",
+  "exports": {
+    "./server": "./server.js"
+  }
+}
