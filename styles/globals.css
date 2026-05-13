@@ -1664,6 +1664,8 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+/* Info Pages */
+.info-page {
 
 /* Order Summary */
 .order-summary {
@@ -1715,6 +1717,7 @@ a.btn-primary, a.btn-small {
   margin: 0 auto;
 }
 
+.info-title {
 .size-guide-heading {
 .info-page-title {
   font-family: 'Cormorant Garamond', serif;
@@ -1755,12 +1758,55 @@ a.btn-primary, a.btn-small {
   margin-bottom: 32px;
 }
 
+.info-subtitle {
 .info-section-title {
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 12px;
 }
 
+.info-text {
+  margin-top: 24px;
+}
+
+.info-link {
+  color: var(--orchid);
+}
+
+.info-subtitle-spaced {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+.faq-item {
+  margin-bottom: 16px;
+  border-bottom: 0.5px solid var(--light-border);
+  padding-bottom: 16px;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-icon {
+  font-size: 24px;
+}
+
+.faq-answer {
+  margin-top: 12px;
+  color: var(--mid-gray);
+  padding-left: 12px;
 .info-link {
   color: var(--orchid);
 }
