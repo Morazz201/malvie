@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "node --import ./test-runner.mjs --experimental-test-module-mocks --test __tests__/**/*.test.js"
     "test": "node -r @babel/register --test components/*.test.js"
     "test": "jest"
     "test": "RESEND_API_KEY=\"re_123\" node --import \"data:text/javascript,import { register } from 'node:module'; import { pathToFileURL } from 'node:url'; register(pathToFileURL('./test-loader.mjs'), pathToFileURL('./'));\" --test"
