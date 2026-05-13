@@ -23,6 +23,17 @@ export async function POST(request) {
         path: '/',
       });
       return NextResponse.json({ success: true });
+      const response = NextResponse.json({ success: true });
+
+      response.cookies.set("admin_session", adminSecret, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        maxAge: 60 * 60 * 24, // 24 hours
+        path: "/",
+      });
+
+      return response;
     } else {
       return NextResponse.json(
         { error: "Invalid password" },
