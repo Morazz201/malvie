@@ -11,12 +11,28 @@ export default function CommunityPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission (replace with actual API later)
-    setTimeout(() => {
+
+    try {
+      const response = await fetch('/api/community', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
       setToastMsg("✨ Thanks for reaching out! We'll be in touch soon.");
       setFormData({ name: "", email: "", instagram: "", message: "" });
+    } catch (error) {
+      console.error('Submission error:', error);
+      setToastMsg("❌ Something went wrong. Please try again.");
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   const handleChange = (e) => {
