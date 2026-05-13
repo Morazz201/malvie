@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "RESEND_API_KEY=\"re_123\" node --import \"data:text/javascript,import { register } from 'node:module'; import { pathToFileURL } from 'node:url'; register(pathToFileURL('./test-loader.mjs'), pathToFileURL('./'));\" --test"
     "test": "node --experimental-vm-modules --test"
     "test": "node --experimental-loader ./test-loader.mjs --experimental-test-module-mocks --test \"**/*.test.js\""
     "test": "node test-runner.mjs"
