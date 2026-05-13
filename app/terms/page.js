@@ -1,7 +1,7 @@
 export default function Terms() {
   return (
-    <div style={{ padding: "140px 40px 80px", maxWidth: "800px", margin: "0 auto" }}>
-      <h1 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "52px", fontWeight: "300", fontStyle: "italic", marginBottom: "24px" }}>Terms of Service</h1>
+    <div className="info-page-wrap">
+      <h1 className="info-page-title">Terms of Service</h1>
       <p>By using Malvie's website, you agree to these terms.</p>
       <h2 style={{ fontSize: "20px", marginTop: "32px", marginBottom: "12px" }}>Products</h2>
       <p>We strive to display accurate product descriptions and colors. However, slight variations may occur due to screen settings.</p>
