@@ -9,12 +9,23 @@ export default function AdminLayout({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const auth = localStorage.getItem("adminAuthenticated");
-    if (auth !== "true" && pathname !== "/admin/login") {
-      router.replace("/admin/login");
-    } else {
-      setIsAuthenticated(true);
+    if (pathname === "/admin/login") {
+      // Allow viewing login page without auth check loop
+      setIsAuthenticated(false);
+      return;
     }
+
+    fetch("/api/admin/check-auth")
+      .then((res) => {
+        if (res.ok) {
+          setIsAuthenticated(true);
+        } else {
+          router.replace("/admin/login");
+        }
+      })
+      .catch(() => {
+        router.replace("/admin/login");
+      });
   }, [pathname]);
 
   if (!isAuthenticated && pathname !== "/admin/login") {
@@ -51,8 +62,8 @@ export default function AdminLayout({ children }) {
         </nav>
         <div className="sidebar-footer">
           <button
-            onClick={() => {
-              localStorage.removeItem("adminAuthenticated");
+            onClick={async () => {
+              await fetch("/api/admin/logout", { method: "POST" });
               router.push("/admin/login");
             }}
             className="logout-btn"
