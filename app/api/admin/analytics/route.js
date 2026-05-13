@@ -9,10 +9,17 @@ export async function GET(request) {
     const now = new Date();
     let startDate = new Date();
     switch (period) {
-      case "week": startDate.setDate(now.getDate() - 7); break;
-      case "month": startDate.setMonth(now.getMonth() - 1); break;
-      case "quarter": startDate.setMonth(now.getMonth() - 3); break;
-      default: startDate.setMonth(now.getMonth() - 1);
+      case "week":
+        startDate.setDate(now.getDate() - 7);
+        break;
+      case "month":
+        startDate.setMonth(now.getMonth() - 1);
+        break;
+      case "quarter":
+        startDate.setMonth(now.getMonth() - 3);
+        break;
+      default:
+        startDate.setMonth(now.getMonth() - 1);
     }
 
     const orders = await prisma.order.findMany({
@@ -43,7 +50,10 @@ export async function GET(request) {
         continue;
       }
       for (const item of items) {
-        const existing = productSales.get(item.name) || { quantity: 0, revenue: 0 };
+        const existing = productSales.get(item.name) || {
+          quantity: 0,
+          revenue: 0,
+        };
         existing.quantity += item.quantity;
         existing.revenue += item.price * item.quantity;
         productSales.set(item.name, existing);
@@ -57,11 +67,16 @@ export async function GET(request) {
     const allProducts = await prisma.product.findMany({
       select: { name: true, category: true },
     });
-    const productCategoryMap = Object.fromEntries(allProducts.map(p => [p.name, p.category]));
+    const productCategoryMap = Object.fromEntries(
+      allProducts.map((p) => [p.name, p.category]),
+    );
     const categorySales = new Map();
     for (const [productName, data] of productSales) {
       const category = productCategoryMap[productName] || "uncategorized";
-      const existing = categorySales.get(category) || { revenue: 0, quantity: 0 };
+      const existing = categorySales.get(category) || {
+        revenue: 0,
+        quantity: 0,
+      };
       existing.revenue += data.revenue;
       existing.quantity += data.quantity;
       categorySales.set(category, existing);
@@ -76,19 +91,25 @@ export async function GET(request) {
     const cityStats = new Map();
     const countryStats = new Map();
     for (const cust of customers) {
-      if (cust.city) cityStats.set(cust.city, (cityStats.get(cust.city) || 0) + 1);
-      if (cust.country) countryStats.set(cust.country, (countryStats.get(cust.country) || 0) + 1);
+      if (cust.city)
+        cityStats.set(cust.city, (cityStats.get(cust.city) || 0) + 1);
+      if (cust.country)
+        countryStats.set(
+          cust.country,
+          (countryStats.get(cust.country) || 0) + 1,
+        );
     }
     const topCities = Array.from(cityStats.entries())
       .map(([city, count]) => ({ city, count }))
       .sort((a, b) => b.count - a.count)
       .slice(0, 10);
-    const countries = Array.from(countryStats.entries())
-      .map(([country, count]) => ({ country, count }));
+    const countries = Array.from(countryStats.entries()).map(
+      ([country, count]) => ({ country, count }),
+    );
 
     const totalRevenue = orders.reduce((sum, o) => sum + (o.total || 0), 0);
     const totalOrders = orders.length;
-    const uniqueCustomers = new Set(orders.map(o => o.customerId)).size;
+    const uniqueCustomers = new Set(orders.map((o) => o.customerId)).size;
 
     return NextResponse.json({
       period,
@@ -101,8 +122,8 @@ export async function GET(request) {
   } catch (error) {
     console.error("Analytics API error:", error);
     return NextResponse.json(
-      { error: "Failed to load analytics", details: error.message },
-      { status: 500 }
+      { error: "Failed to load analytics" },
+      { status: 500 },
     );
   }
 }
