@@ -1453,6 +1453,25 @@ footer {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
+/* ─────────── OUR STORY PAGE ─────────── */
+.our-story-page {
+  padding: 140px 40px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.our-story-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.our-story-text {
+  margin-bottom: 20px;
+}
+
 /* ─────────── RESPONSIVE ─────────── */
 @media (max-width: 1024px) {
   .product-grid { grid-template-columns: repeat(2, 1fr); }
