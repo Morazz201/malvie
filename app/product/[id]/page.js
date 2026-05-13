@@ -139,6 +139,7 @@ export default function ProductPage() {
         }
         .fallback-emoji {
           font-size: 120px;
+          line-height: 1;
         }
         .product-title {
           font-family: 'Cormorant Garamond', serif;
@@ -208,6 +209,7 @@ export default function ProductPage() {
           }
           .fallback-emoji {
             font-size: 80px;
+            line-height: 1;
           }
         }
       `}</style>
