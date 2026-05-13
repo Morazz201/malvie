@@ -15,6 +15,13 @@ export async function POST(request) {
     }
 
     if (password === adminSecret) {
+      const response = NextResponse.json({ success: true });
+      response.cookies.set("admin_session", adminSecret, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        path: "/",
+      });
       const cookieStore = await cookies();
       cookieStore.set('admin_session', adminSecret, {
         httpOnly: true,
