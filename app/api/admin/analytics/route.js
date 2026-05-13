@@ -54,7 +54,9 @@ export async function GET(request) {
       .sort((a, b) => b.revenue - a.revenue)
       .slice(0, 10);
 
+    const productNames = Array.from(productSales.keys());
     const allProducts = await prisma.product.findMany({
+      where: { name: { in: productNames } },
       select: { name: true, category: true },
     });
     const productCategoryMap = Object.fromEntries(allProducts.map(p => [p.name, p.category]));
