@@ -98,46 +98,46 @@ export default function CheckoutPage() {
   return (
     <>
       <Toast message={toastMsg} visible={!!toastMsg} onClose={() => setToastMsg("")} />
-      <div style={{ padding: "140px 40px 80px", maxWidth: "1200px", margin: "0 auto" }}>
-        <h1 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "48px", fontWeight: "300", fontStyle: "italic", marginBottom: "40px" }}>Checkout</h1>
+      <div className="checkout-wrap">
+        <h1 className="checkout-title">Checkout</h1>
         
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 380px", gap: "50px" }}>
+        <div className="checkout-grid">
           {/* Billing Form */}
           <form onSubmit={handleSubmit}>
-            <div style={{ background: "white", border: "0.5px solid var(--light-border)", padding: "32px", marginBottom: "24px" }}>
-              <h2 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "22px", fontWeight: "300", marginBottom: "24px", paddingBottom: "12px", borderBottom: "0.5px solid var(--light-border)" }}>Billing Details</h2>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "20px" }}>
+            <div className="checkout-panel">
+              <h2 className="checkout-panel-title">Billing Details</h2>
+              <div className="form-row">
                 <div>
-                  <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Full Name *</label>
-                  <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                  <label className="form-label">Full Name *</label>
+                  <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="form-input" />
                 </div>
                 <div>
-                  <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Email *</label>
-                  <input type="email" name="email" required value={formData.email} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                  <label className="form-label">Email *</label>
+                  <input type="email" name="email" required value={formData.email} onChange={handleChange} className="form-input" />
                 </div>
               </div>
-              <div style={{ marginBottom: "20px" }}>
-                <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Phone *</label>
-                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+              <div className="form-group">
+                <label className="form-label">Phone *</label>
+                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="form-input" />
               </div>
-              <div style={{ marginBottom: "20px" }}>
-                <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Address *</label>
-                <input type="text" name="address" required value={formData.address} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+              <div className="form-group">
+                <label className="form-label">Address *</label>
+                <input type="text" name="address" required value={formData.address} onChange={handleChange} className="form-input" />
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "20px" }}>
+              <div className="form-row">
                 <div>
-                  <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>City *</label>
-                  <input type="text" name="city" required value={formData.city} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                  <label className="form-label">City *</label>
+                  <input type="text" name="city" required value={formData.city} onChange={handleChange} className="form-input" />
                 </div>
                 <div>
-                  <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Postal Code</label>
-                  <input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                  <label className="form-label">Postal Code</label>
+                  <input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} className="form-input" />
                 </div>
               </div>
             </div>
 
-            <div style={{ background: "white", border: "0.5px solid var(--light-border)", padding: "32px" }}>
-              <h2 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "22px", fontWeight: "300", marginBottom: "24px", paddingBottom: "12px", borderBottom: "0.5px solid var(--light-border)" }}>Payment Method</h2>
+            <div className="checkout-panel" style={{ marginBottom: "0" }}>
+              <h2 className="checkout-panel-title">Payment Method</h2>
               <div className="payment-options">
                 <label style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px", cursor: "pointer" }}>
                   <input type="radio" name="paymentMethod" value="cod" checked={formData.paymentMethod === "cod"} onChange={handleChange} />
@@ -163,25 +163,25 @@ export default function CheckoutPage() {
           </form>
 
           {/* Order Summary */}
-          <div style={{ background: "white", border: "0.5px solid var(--light-border)", padding: "32px", height: "fit-content", position: "sticky", top: "100px" }}>
-            <div style={{ fontFamily: "'Cormorant Garamond'", fontSize: "22px", fontWeight: "300", marginBottom: "24px", paddingBottom: "12px", borderBottom: "0.5px solid var(--light-border)" }}>Your Order</div>
+          <div className="checkout-summary">
+            <div className="checkout-summary-title">Your Order</div>
             {cart.map((item, idx) => (
-              <div key={idx} style={{ display: "flex", justifyContent: "space-between", marginBottom: "16px", fontSize: "14px" }}>
+              <div key={idx} className="checkout-summary-row">
                 <span>{item.name} (x{item.quantity})</span>
                 <span>LKR {(item.price * item.quantity).toLocaleString()}</span>
               </div>
             ))}
-            <div style={{ borderTop: "0.5px solid var(--light-border)", marginTop: "16px", paddingTop: "16px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px", fontSize: "14px" }}>
+            <div className="checkout-summary-divider">
+              <div className="checkout-summary-subrow">
                 <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px", fontSize: "14px" }}>
+              <div className="checkout-summary-subrow">
                 <span>Shipping</span><span>{shipping === 0 ? "FREE" : `LKR ${shipping.toLocaleString()}`}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px", fontSize: "14px" }}>
+              <div className="checkout-summary-subrow">
                 <span>Tax (5%)</span><span>LKR {tax.toLocaleString()}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", fontWeight: "bold", fontSize: "18px", marginTop: "12px", paddingTop: "12px", borderTop: "1px solid var(--light-border)" }}>
+              <div className="checkout-summary-total">
                 <span>Total</span><span style={{ color: "var(--deep-violet)" }}>LKR {total.toLocaleString()}</span>
               </div>
             </div>
