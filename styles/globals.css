@@ -1636,6 +1636,27 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+/* ─────────── CHECKOUT PAGE ─────────── */
+.empty-checkout {
+  padding: 160px 40px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.empty-checkout-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.empty-checkout-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.checkout-container {
 
 /* ─────────── CHECKOUT FORM ─────────── */
 .checkout-form-group {
@@ -1739,6 +1760,8 @@ a.btn-primary, a.btn-small {
   border: 0.5px solid var(--light-border);
   font-family: inherit;
 }
+
+.payment-option-label {
 }
 
 .payment-options {
@@ -1757,6 +1780,7 @@ a.btn-primary, a.btn-small {
   margin-top: 24px;
 }
 
+.order-summary-card {
 .checkout-submit-btn {
   width: 100%;
 }
@@ -1771,6 +1795,7 @@ a.btn-primary, a.btn-small {
   top: 100px;
 }
 
+.order-summary-item {
 .order-summary-title {
 .checkout-summary-title {
   font-family: 'Cormorant Garamond', serif;
@@ -1790,6 +1815,7 @@ a.btn-primary, a.btn-small {
   font-size: 14px;
 }
 
+.order-summary-details {
 .checkout-summary-totals {
 .order-totals-section {
   border-top: 0.5px solid var(--light-border);
@@ -1797,6 +1823,7 @@ a.btn-primary, a.btn-small {
   padding-top: 16px;
 }
 
+.order-summary-row {
 .checkout-summary-row {
 .order-total-row {
 .checkout-summary-subrow {
@@ -1806,6 +1833,7 @@ a.btn-primary, a.btn-small {
   font-size: 14px;
 }
 
+.order-summary-total {
 .checkout-summary-total-row {
 .order-grand-total {
 .checkout-summary-divider {
@@ -1824,6 +1852,11 @@ a.btn-primary, a.btn-small {
   border-top: 1px solid var(--light-border);
 }
 
+.order-summary-total-price {
+  color: var(--deep-violet);
+}
+
+.order-summary-footer {
 .checkout-summary-total-value {
   color: var(--deep-violet);
 }
@@ -1840,6 +1873,14 @@ a.btn-primary, a.btn-small {
   color: var(--mid-gray);
 }
 
+@media (max-width: 1024px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .order-summary-card {
+    position: relative;
+    top: 0;
 .payment-option-label {
   display: flex;
   align-items: center;
@@ -1862,6 +1903,16 @@ a.btn-primary, a.btn-small {
 }
 
 @media (max-width: 768px) {
+  .checkout-container {
+    padding: 100px 20px 60px;
+  }
+  .checkout-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
   .checkout-wrap {
     padding: 100px 20px 60px;
   }

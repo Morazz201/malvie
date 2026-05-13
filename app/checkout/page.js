@@ -32,6 +32,7 @@ export default function CheckoutPage() {
       <div className="empty-checkout">
         <div className="empty-checkout-icon">🛒</div>
         <h2 className="empty-checkout-title">Your cart is empty</h2>
+        <p className="order-summary-footer" style={{ marginBottom: "32px" }}>Add some beautiful pieces before checking out.</p>
         <h2 className="empty-checkout-heading">Your cart is empty</h2>
         <p className="empty-checkout-text">Add some beautiful pieces before checking out.</p>
         <Link href="/shop" className="btn-primary">Continue Shopping</Link>
@@ -107,6 +108,7 @@ export default function CheckoutPage() {
   return (
     <>
       <Toast message={toastMsg} visible={!!toastMsg} onClose={() => setToastMsg("")} />
+      <div className="checkout-container">
       <div className="checkout-wrap">
         <h1 className="checkout-header">Checkout</h1>
         <h1 className="checkout-heading">Checkout</h1>
@@ -118,6 +120,29 @@ export default function CheckoutPage() {
             <div className="checkout-section">
               <h2 className="checkout-section-title">Billing Details</h2>
               <div className="form-row">
+                <div className="form-group">
+                  <label className="form-label">Full Name *</label>
+                  <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="form-input" />
+                </div>
+                <div className="form-group">
+                  <label className="form-label">Email *</label>
+                  <input type="email" name="email" required value={formData.email} onChange={handleChange} className="form-input" />
+                </div>
+              </div>
+              <div className="form-group">
+                <label className="form-label">Phone *</label>
+                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="form-input" />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Address *</label>
+                <input type="text" name="address" required value={formData.address} onChange={handleChange} className="form-input" />
+              </div>
+              <div className="form-row">
+                <div className="form-group">
+                  <label className="form-label">City *</label>
+                  <input type="text" name="city" required value={formData.city} onChange={handleChange} className="form-input" />
+                </div>
+                <div className="form-group">
                 <div>
                   <label className="checkout-label">Full Name *</label>
                   <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="checkout-input" />
@@ -242,6 +267,16 @@ export default function CheckoutPage() {
                   <span>Credit / Debit Card (coming soon)</span>
                 </label>
                 <label className="payment-option-label">
+              <div className="payment-options">
+                <label className="payment-option-label">
+                  <input type="radio" name="paymentMethod" value="cod" checked={formData.paymentMethod === "cod"} onChange={handleChange} />
+                  <span>Cash on Delivery (COD)</span>
+                </label>
+                <label className="payment-option-label">
+                  <input type="radio" name="paymentMethod" value="card" checked={formData.paymentMethod === "card"} onChange={handleChange} />
+                  <span>Credit / Debit Card (coming soon)</span>
+                </label>
+                <label className="payment-option-label">
             <div className="checkout-panel" style={{ marginBottom: "0" }}>
               <h2 className="checkout-panel-title">Payment Method</h2>
               <div className="payment-options">
@@ -262,6 +297,7 @@ export default function CheckoutPage() {
 
             {/* Submit button inside form so Enter key works */}
             <div className="checkout-submit-wrap">
+              <button type="submit" disabled={isSubmitting} className="btn-primary" style={{ width: "100%", background: isSubmitting ? "var(--mid-gray)" : "var(--deep-violet)" }}>
               <button type="submit" disabled={isSubmitting} className="btn-primary checkout-submit-btn" style={{ background: isSubmitting ? "var(--mid-gray)" : "var(--deep-violet)" }}>
                 {isSubmitting ? "Processing..." : "Place Order"}
               </button>
@@ -269,6 +305,10 @@ export default function CheckoutPage() {
           </form>
 
           {/* Order Summary */}
+          <div className="order-summary-card">
+            <div className="checkout-section-title">Your Order</div>
+            {cart.map((item, idx) => (
+              <div key={idx} className="order-summary-item">
           <div className="checkout-summary">
             <div className="checkout-summary-title">Your Order</div>
             {cart.map((item, idx) => (
@@ -285,6 +325,22 @@ export default function CheckoutPage() {
                 <span>LKR {(item.price * item.quantity).toLocaleString()}</span>
               </div>
             ))}
+            <div className="order-summary-details">
+              <div className="order-summary-row">
+                <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>
+              </div>
+              <div className="order-summary-row">
+                <span>Shipping</span><span>{shipping === 0 ? "FREE" : `LKR ${shipping.toLocaleString()}`}</span>
+              </div>
+              <div className="order-summary-row">
+                <span>Tax (5%)</span><span>LKR {tax.toLocaleString()}</span>
+              </div>
+              <div className="order-summary-total">
+                <span>Total</span><span className="order-summary-total-price">LKR {total.toLocaleString()}</span>
+              </div>
+            </div>
+            <p className="order-summary-footer">
+              By placing an order, you agree to our <Link href="/terms" style={{ color: "var(--orchid)" }}>Terms</Link> and <Link href="/privacy" style={{ color: "var(--orchid)" }}>Privacy Policy</Link>.
             <div className="checkout-summary-totals">
               <div className="checkout-summary-row">
                 <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>
