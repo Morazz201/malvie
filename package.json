@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "RESEND_API_KEY=\"re_123\" node --import \"data:text/javascript,import { register } from 'node:module'; import { pathToFileURL } from 'node:url'; register(pathToFileURL('./test-loader.mjs'), pathToFileURL('./'));\" --test"
   },
   "dependencies": {
     "multer": "^2.1.1",
