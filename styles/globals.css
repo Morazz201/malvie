@@ -1453,6 +1453,25 @@ footer {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
+/* ─────────── OUR STORY PAGE ─────────── */
+.our-story-page {
+  padding: 140px 40px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.our-story-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.our-story-text {
+  margin-bottom: 20px;
+}
+
 /* ─────────── RESPONSIVE ─────────── */
 @media (max-width: 1024px) {
   .product-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1618,6 +1637,8 @@ a.btn-primary, a.btn-small {
   text-align: center;
 }
 /* Checkout Page Styles */
+/* ─────────── CHECKOUT ─────────── */
+/* ─────────── FORMS AND CHECKOUT ─────────── */
 .checkout-wrap {
   padding: 140px 40px 80px;
   max-width: 1200px;
@@ -1625,6 +1646,8 @@ a.btn-primary, a.btn-small {
 }
 
 .checkout-header {
+.checkout-heading {
+.checkout-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 48px;
   font-weight: 300;
@@ -1639,6 +1662,7 @@ a.btn-primary, a.btn-small {
 }
 
 .checkout-section {
+.checkout-panel {
   background: white;
   border: 0.5px solid var(--light-border);
   padding: 32px;
@@ -1646,6 +1670,7 @@ a.btn-primary, a.btn-small {
 }
 
 .checkout-section-title {
+.checkout-panel-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
   font-weight: 300;
@@ -1679,6 +1704,27 @@ a.btn-primary, a.btn-small {
   font-family: inherit;
 }
 
+.payment-options {
+  /* Class already defined in JS, applying styles here */
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.checkout-submit-wrap {
+  margin-top: 24px;
+}
+
+.checkout-submit-btn {
+  width: 100%;
+}
+
+.order-summary-box {
 .checkout-summary {
   background: white;
   border: 0.5px solid var(--light-border);
@@ -1688,6 +1734,7 @@ a.btn-primary, a.btn-small {
   top: 100px;
 }
 
+.order-summary-title {
 .checkout-summary-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
@@ -1698,6 +1745,8 @@ a.btn-primary, a.btn-small {
 }
 
 .checkout-summary-item {
+.order-item-row {
+.checkout-summary-row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 16px;
@@ -1705,12 +1754,15 @@ a.btn-primary, a.btn-small {
 }
 
 .checkout-summary-totals {
+.order-totals-section {
   border-top: 0.5px solid var(--light-border);
   margin-top: 16px;
   padding-top: 16px;
 }
 
 .checkout-summary-row {
+.order-total-row {
+.checkout-summary-subrow {
   display: flex;
   justify-content: space-between;
   margin-bottom: 12px;
@@ -1718,6 +1770,14 @@ a.btn-primary, a.btn-small {
 }
 
 .checkout-summary-total-row {
+.order-grand-total {
+.checkout-summary-divider {
+  border-top: 0.5px solid var(--light-border);
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+.checkout-summary-total {
   display: flex;
   justify-content: space-between;
   font-weight: bold;
@@ -1732,6 +1792,11 @@ a.btn-primary, a.btn-small {
 }
 
 .checkout-terms {
+.order-grand-total-val {
+  color: var(--deep-violet);
+}
+
+.order-terms {
   font-size: 12px;
   text-align: center;
   margin-top: 16px;
@@ -1748,6 +1813,24 @@ a.btn-primary, a.btn-small {
 
 .checkout-submit-wrap {
   margin-top: 24px;
+.order-terms a {
+  color: var(--orchid);
+}
+
+/* Responsive styles for checkout */
+@media (max-width: 1024px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout-wrap {
+    padding: 100px 20px 60px;
+  }
+  .checkout-form-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 .empty-checkout {
@@ -1763,6 +1846,7 @@ a.btn-primary, a.btn-small {
 }
 
 .empty-checkout-title {
+.empty-checkout-heading {
   font-family: 'Cormorant Garamond', serif;
   font-size: 36px;
   font-style: italic;
@@ -1780,4 +1864,9 @@ a.btn-primary, a.btn-small {
 
 .checkout-submit-btn {
   width: 100%;
+@media (max-width: 1024px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
