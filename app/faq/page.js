@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 
 const faqs = [
@@ -11,15 +13,17 @@ const faqs = [
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
   return (
-    <div style={{ padding: "140px 40px 80px", maxWidth: "800px", margin: "0 auto" }}>
-      <h1 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "52px", fontWeight: "300", fontStyle: "italic", marginBottom: "40px" }}>Frequently Asked Questions</h1>
+    <div className="info-page">
+      <h1 className="info-title" style={{ marginBottom: "40px" }}>Frequently Asked Questions</h1>
+    <div className="info-page-wrap">
+      <h1 className="info-page-title" style={{ marginBottom: "40px" }}>Frequently Asked Questions</h1>
       {faqs.map((faq, idx) => (
-        <div key={idx} style={{ marginBottom: "16px", borderBottom: "0.5px solid var(--light-border)", paddingBottom: "16px" }}>
-          <button onClick={() => setOpenIndex(openIndex === idx ? null : idx)} style={{ width: "100%", textAlign: "left", background: "none", border: "none", fontSize: "18px", fontWeight: "500", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div key={idx} className="faq-item">
+          <button onClick={() => setOpenIndex(openIndex === idx ? null : idx)} className="faq-question">
             {faq.q}
-            <span style={{ fontSize: "24px" }}>{openIndex === idx ? "−" : "+"}</span>
+            <span className="faq-icon">{openIndex === idx ? "−" : "+"}</span>
           </button>
-          {openIndex === idx && <p style={{ marginTop: "12px", color: "var(--mid-gray)", paddingLeft: "12px" }}>{faq.a}</p>}
+          {openIndex === idx && <p className="faq-answer">{faq.a}</p>}
         </div>
       ))}
     </div>

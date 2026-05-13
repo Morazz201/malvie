@@ -20,8 +20,15 @@ export default function Shop() {
     fetch("/api/products?activeOnly=true")
       .then(res => res.json())
       .then(data => {
-        setProducts(data);
-        setFilteredProducts(data);
+        const optimizedData = data.map(p => {
+          let parsedColors = [];
+          try {
+            if (p.colors) parsedColors = JSON.parse(p.colors);
+          } catch { }
+          return { ...p, parsedColors };
+        });
+        setProducts(optimizedData);
+        setFilteredProducts(optimizedData);
         setLoading(false);
       })
       .catch(err => {
@@ -50,10 +57,7 @@ export default function Shop() {
     // Color filter (colors stored as JSON string)
     if (selectedColors.length) {
       result = result.filter(p => {
-        try {
-          const colors = JSON.parse(p.colors);
-          return colors.some(c => selectedColors.includes(c));
-        } catch { return false; }
+        return p.parsedColors && p.parsedColors.some(c => selectedColors.includes(c));
       });
     }
 
@@ -215,12 +219,9 @@ export default function Shop() {
                     <div className="product-price-row">
                       <span className="product-price">LKR {product.price.toLocaleString()}</span>
                       <div className="product-colors">
-                        {(() => {
-                          try {
-                            const colors = JSON.parse(product.colors);
-                            return colors.map((c, i) => <div key={i} className="color-dot" style={{ background: c }}></div>);
-                          } catch { return null; }
-                        })()}
+                        {product.parsedColors && product.parsedColors.map((c, i) => (
+                          <div key={i} className="color-dot" style={{ background: c }}></div>
+                        ))}
                       </div>
                     </div>
                   </Link>

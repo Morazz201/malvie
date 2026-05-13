@@ -9,3 +9,24 @@ process.env.ADMIN_EMAIL = 'admin@example.com';
 process.env.NEXTAUTH_URL = 'http://localhost:3000';
 
 register('./mock-loader.mjs', import.meta.url);
+import { spawnSync } from 'child_process';
+import { globSync } from 'glob';
+
+const files = globSync('**/*.test.{js,mjs}', { ignore: 'node_modules/**' });
+
+if (files.length === 0) {
+  console.log("No tests found.");
+  process.exit(0);
+}
+
+const args = [
+  '--experimental-loader',
+  './loader.mjs',
+  '--test',
+  '--experimental-test-module-mocks',
+  ...files
+];
+
+const result = spawnSync('node', args, { stdio: 'inherit' });
+
+process.exit(result.status);
