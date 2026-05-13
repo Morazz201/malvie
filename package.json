@@ -5,7 +5,15 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "node --experimental-test-module-mocks --test \"tests/**/*.test.js\""
+    "test": "node --import ./test-runner.js --test"
+    "test": "node run-tests.mjs"
+    "test": "tsx --test \"app/**/*.test.js\""
+    "test": "node --experimental-loader=./mock_loader.js --test"
+    "test": "node --import \"data:text/javascript,import { register } from 'node:module'; import { pathToFileURL } from 'node:url'; register('./loader.js', pathToFileURL('./'));\" --test"
+    "test": "tsx --test"
+    "test": "node --test 'app/**/*.test.js'"
   },
   "dependencies": {
     "multer": "^2.1.1",
@@ -20,7 +28,20 @@
   },
   "devDependencies": {
     "@prisma/client": "^5.22.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
+    "esbuild": "^0.28.0",
+    "glob": "^13.0.6",
+    "jsdom": "^29.1.1",
     "prisma": "^5.22.0"
+    "esbuild": "^0.28.0",
+    "prisma": "^5.22.0",
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.21.0"
+    "@types/node": "^25.7.0",
+    "@types/react": "^19.2.14",
+    "prisma": "^5.22.0",
+    "typescript": "^6.0.3"
   },
   "prisma": {
     "seed": "node prisma/seed.js"
