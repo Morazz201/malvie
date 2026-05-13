@@ -406,6 +406,8 @@ export default function CheckoutPage() {
           <div className="order-summary">
             <div className="order-summary-title">Your Order</div>
             {cart.map((item, idx) => (
+              <div key={idx} className="order-summary-item">
+            {cart.map((item, idx) => (
               <div key={idx} className="order-item">
           <div className="checkout-summary">
             <div className="summary-title">Your Order</div>
@@ -431,6 +433,22 @@ export default function CheckoutPage() {
                 <span>LKR {(item.price * item.quantity).toLocaleString()}</span>
               </div>
             ))}
+            <div className="order-summary-totals">
+              <div className="order-summary-row">
+                <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>
+              </div>
+              <div className="order-summary-row">
+                <span>Shipping</span><span>{shipping === 0 ? "FREE" : `LKR ${shipping.toLocaleString()}`}</span>
+              </div>
+              <div className="order-summary-row">
+                <span>Tax (5%)</span><span>LKR {tax.toLocaleString()}</span>
+              </div>
+              <div className="order-summary-total-row">
+                <span>Total</span><span className="order-summary-total-val">LKR {total.toLocaleString()}</span>
+              </div>
+            </div>
+            <p className="order-summary-terms">
+              By placing an order, you agree to our <Link href="/terms" className="order-summary-link">Terms</Link> and <Link href="/privacy" className="order-summary-link">Privacy Policy</Link>.
             <div style={{ borderTop: "0.5px solid var(--light-border)", marginTop: "16px", paddingTop: "16px" }}>
               <div className="summary-row">
                 <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>

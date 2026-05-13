@@ -1664,6 +1664,9 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+
+/* Order Summary */
+.order-summary {
 /* Checkout Summary Styles */
 .summary-row {
 
@@ -1903,6 +1906,8 @@ a.btn-primary, a.btn-small {
   position: sticky;
   top: 100px;
 }
+
+.order-summary-title {
 .order-summary-title {
 
 .summary-title {
@@ -1916,6 +1921,8 @@ a.btn-primary, a.btn-small {
   padding-bottom: 12px;
   border-bottom: 0.5px solid var(--light-border);
 }
+
+.order-summary-item {
 .order-item {
 
 .summary-item {
@@ -1927,6 +1934,8 @@ a.btn-primary, a.btn-small {
   margin-bottom: 16px;
   font-size: 14px;
 }
+
+.order-summary-totals {
 .order-totals {
 
 .summary-totals {
@@ -1937,6 +1946,8 @@ a.btn-primary, a.btn-small {
   margin-top: 16px;
   padding-top: 16px;
 }
+
+.order-summary-row {
 .order-totals-row {
 
 .summary-row {
@@ -1950,6 +1961,7 @@ a.btn-primary, a.btn-small {
   font-size: 14px;
 }
 
+.order-summary-total-row {
 .summary-total {
 .order-total-final {
 
@@ -1973,6 +1985,11 @@ a.btn-primary, a.btn-small {
   border-top: 1px solid var(--light-border);
 }
 
+.order-summary-total-val {
+  color: var(--deep-violet);
+}
+
+.order-summary-terms {
 .total-value {
   color: var(--deep-violet);
 }
@@ -2004,6 +2021,10 @@ a.btn-primary, a.btn-small {
   text-align: center;
   margin-top: 16px;
   color: var(--mid-gray);
+}
+
+.order-summary-link {
+  color: var(--orchid);
 }
 .order-terms a {
   color: var(--orchid);
