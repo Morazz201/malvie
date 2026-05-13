@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "node --experimental-loader ./test-loader.mjs --experimental-test-module-mocks --test \"**/*.test.js\""
     "test": "node test-runner.mjs"
     "test": "node --experimental-test-module-mocks --test \"tests/**/*.test.js\""
     "test": "node --import ./test-runner.js --test"
