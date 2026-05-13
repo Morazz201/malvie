@@ -38,13 +38,17 @@ export default function Header() {
       </header>
 
       {mobileOpen && (
-        <div className="mobile-nav open">
-          <button className="mobile-nav-close" onClick={() => setMobileOpen(false)}>✕</button>
-          <Link href="/" onClick={() => setMobileOpen(false)}>Home</Link>
-          <Link href="/shop" onClick={() => setMobileOpen(false)}>Shop</Link>
-          <Link href="/our-story" onClick={() => setMobileOpen(false)}>Our Story</Link>
-          <Link href="/community" onClick={() => setMobileOpen(false)}>Community</Link>
-        </div>
+        <>
+          <div className="mobile-nav-backdrop" onClick={() => setMobileOpen(false)} style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", background: "rgba(0,0,0,0.5)", zIndex: 999, opacity: 1, transition: "opacity 0.3s ease" }}></div>
+          <div className="mobile-nav open">
+            <button className="mobile-nav-close" onClick={() => setMobileOpen(false)}>✕</button>
+            <Link href="/" onClick={() => setMobileOpen(false)}>Home</Link>
+            <Link href="/shop" onClick={() => setMobileOpen(false)}>Shop</Link>
+            <Link href="/our-story" onClick={() => setMobileOpen(false)}>Our Story</Link>
+            <Link href="/community" onClick={() => setMobileOpen(false)}>Community</Link>
+            <Link href="/cart" onClick={() => setMobileOpen(false)}>Cart ({cartCount})</Link>
+          </div>
+        </>
       )}
     </>
   );
