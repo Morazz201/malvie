@@ -70,21 +70,42 @@ export async function GET(request) {
       .map(([category, data]) => ({ category, ...data }))
       .sort((a, b) => b.revenue - a.revenue);
 
-    const customers = await prisma.customer.findMany({
-      select: { city: true, country: true },
-    });
-    const cityStats = new Map();
-    const countryStats = new Map();
-    for (const cust of customers) {
-      if (cust.city) cityStats.set(cust.city, (cityStats.get(cust.city) || 0) + 1);
-      if (cust.country) countryStats.set(cust.country, (countryStats.get(cust.country) || 0) + 1);
-    }
-    const topCities = Array.from(cityStats.entries())
-      .map(([city, count]) => ({ city, count }))
-      .sort((a, b) => b.count - a.count)
-      .slice(0, 10);
-    const countries = Array.from(countryStats.entries())
-      .map(([country, count]) => ({ country, count }));
+    const [cityAggregates, countryAggregates] = await Promise.all([
+      prisma.customer.groupBy({
+        by: ["city"],
+        where: {
+          city: { notIn: ["", null] },
+        },
+        _count: {
+          city: true,
+        },
+        orderBy: {
+          _count: {
+            city: "desc",
+          },
+        },
+        take: 10,
+      }),
+      prisma.customer.groupBy({
+        by: ["country"],
+        where: {
+          country: { notIn: ["", null] },
+        },
+        _count: {
+          country: true,
+        },
+      }),
+    ]);
+
+    const topCities = cityAggregates.map((agg) => ({
+      city: agg.city,
+      count: agg._count.city,
+    }));
+
+    const countries = countryAggregates.map((agg) => ({
+      country: agg.country,
+      count: agg._count.country,
+    }));
 
     const totalRevenue = orders.reduce((sum, o) => sum + (o.total || 0), 0);
     const totalOrders = orders.length;
