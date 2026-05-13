@@ -109,29 +109,29 @@ export default function CheckoutPage() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "20px" }}>
                 <div>
                   <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Full Name *</label>
-                  <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                  <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="form-input" />
                 </div>
                 <div>
                   <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Email *</label>
-                  <input type="email" name="email" required value={formData.email} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                  <input type="email" name="email" required value={formData.email} onChange={handleChange} className="form-input" />
                 </div>
               </div>
               <div style={{ marginBottom: "20px" }}>
                 <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Phone *</label>
-                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="form-input" />
               </div>
               <div style={{ marginBottom: "20px" }}>
                 <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Address *</label>
-                <input type="text" name="address" required value={formData.address} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                <input type="text" name="address" required value={formData.address} onChange={handleChange} className="form-input" />
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "20px" }}>
                 <div>
                   <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>City *</label>
-                  <input type="text" name="city" required value={formData.city} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                  <input type="text" name="city" required value={formData.city} onChange={handleChange} className="form-input" />
                 </div>
                 <div>
                   <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Postal Code</label>
-                  <input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                  <input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} className="form-input" />
                 </div>
               </div>
             </div>
