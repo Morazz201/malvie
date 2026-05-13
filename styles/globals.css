@@ -597,6 +597,34 @@ nav a:hover::after { transform: scaleX(1); }
 }
 .color-dot:hover { transform: scale(1.25); }
 
+.collection-footer {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.collection-footer-text {
+  font-size: 12px;
+  color: var(--mid-gray);
+  font-weight: 300;
+}
+
+.collection-footer-link {
+  font-size: 12px;
+  color: var(--orchid);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 0.5px solid var(--orchid);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.collection-footer-link:hover {
+  color: var(--deep-violet);
+  border-bottom-color: var(--deep-violet);
+}
+
 /* ─────────── BRAND STORY ─────────── */
 .story-wrap {
   background: var(--white);
