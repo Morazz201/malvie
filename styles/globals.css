@@ -1617,3 +1617,71 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+/* Info Pages */
+.info-page {
+  padding: 140px 40px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.info-section {
+  margin-bottom: 32px;
+}
+
+.info-subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.info-text {
+  margin-top: 24px;
+}
+
+.info-link {
+  color: var(--orchid);
+}
+
+.info-subtitle-spaced {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+.faq-item {
+  margin-bottom: 16px;
+  border-bottom: 0.5px solid var(--light-border);
+  padding-bottom: 16px;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-icon {
+  font-size: 24px;
+}
+
+.faq-answer {
+  margin-top: 12px;
+  color: var(--mid-gray);
+  padding-left: 12px;
+}
