@@ -108,9 +108,9 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div style={{ marginTop: "36px", display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
-            <span style={{ fontSize: "12px", color: "var(--mid-gray)", fontWeight: "300" }}>Available in XS – XL · All pieces 240 GSM cotton</span>
-            <Link href="/size-guide" style={{ fontSize: "12px", color: "var(--orchid)", textDecoration: "none", fontWeight: "500", borderBottom: "0.5px solid var(--orchid)" }}>View Size Guide →</Link>
+          <div className="collection-footer">
+            <span className="collection-footer-text">Available in XS – XL · All pieces 240 GSM cotton</span>
+            <Link href="/size-guide" className="collection-footer-link">View Size Guide →</Link>
           </div>
         </div>
       </section>
