@@ -1617,3 +1617,31 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+/* ─────────── INFO PAGES ─────────── */
+.info-page-wrap {
+  padding: 140px 40px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info-page-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.info-section {
+  margin-bottom: 32px;
+}
+
+.info-section-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.info-link {
+  color: var(--orchid);
+}
