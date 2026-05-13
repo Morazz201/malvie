@@ -1664,6 +1664,7 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+/* Form elements */
 /* ─────────── SIZE GUIDE PAGE ─────────── */
 .size-guide-container {
 /* ─────────── CHECKOUT PAGE ─────────── */
@@ -1817,6 +1818,12 @@ a.btn-primary, a.btn-small {
   padding: 12px;
   border: 0.5px solid var(--light-border);
   font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--orchid);
 }
 
 .payment-option-label {

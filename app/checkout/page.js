@@ -144,6 +144,19 @@ export default function CheckoutPage() {
                 </div>
                 <div className="form-group">
                 <div>
+                  <label className="form-label">Full Name *</label>
+                  <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="form-input" />
+                </div>
+                <div>
+                  <label className="form-label">Email *</label>
+                  <input type="email" name="email" required value={formData.email} onChange={handleChange} className="form-input" />
+                </div>
+              </div>
+              <div style={{ marginBottom: "20px" }}>
+                <label className="form-label">Phone *</label>
+                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="form-input" />
+              </div>
+              <div style={{ marginBottom: "20px" }}>
                   <label className="checkout-label">Full Name *</label>
                   <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="checkout-input" />
                 </div>
