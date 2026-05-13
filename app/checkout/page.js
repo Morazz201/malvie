@@ -46,6 +46,12 @@ export default function CheckoutPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!/^\d{10}$/.test(formData.phone)) {
+      setToastMsg("❌ Please enter a valid 10-digit phone number.");
+      return;
+    }
+
     setIsSubmitting(true);
     setToastMsg("✨ Processing your order...");
 
@@ -118,7 +124,7 @@ export default function CheckoutPage() {
               </div>
               <div style={{ marginBottom: "20px" }}>
                 <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Phone *</label>
-                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                <input type="tel" name="phone" required pattern="[0-9]{10}" value={formData.phone} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
               </div>
               <div style={{ marginBottom: "20px" }}>
                 <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Address *</label>
