@@ -1617,3 +1617,23 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+/* Form elements */
+.form-label {
+  font-size: 13px;
+  display: block;
+  margin-bottom: 8px;
+  color: var(--deep-violet);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 0.5px solid var(--light-border);
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--orchid);
+}
