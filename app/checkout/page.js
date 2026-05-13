@@ -108,6 +108,8 @@ export default function CheckoutPage() {
   return (
     <>
       <Toast message={toastMsg} visible={!!toastMsg} onClose={() => setToastMsg("")} />
+      <div className="checkout-wrap">
+        <h1 className="checkout-heading">Checkout</h1>
       <div className="checkout-container">
       <div className="checkout-wrap">
         <h1 className="checkout-header">Checkout</h1>
@@ -117,6 +119,14 @@ export default function CheckoutPage() {
         <div className="checkout-grid">
           {/* Billing Form */}
           <form onSubmit={handleSubmit}>
+            <div className="checkout-panel">
+              <h2 className="checkout-panel-title">Billing Details</h2>
+              <div className="form-row">
+                <div>
+                  <label className="form-label">Full Name *</label>
+                  <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="form-input" />
+                </div>
+                <div>
             <div className="checkout-section">
               <h2 className="checkout-section-title">Billing Details</h2>
               <div className="form-row">
@@ -156,6 +166,10 @@ export default function CheckoutPage() {
                   <label className="form-label">Email *</label>
                   <input type="email" name="email" required value={formData.email} onChange={handleChange} className="form-input" />
                 </div>
+              </div>
+              <div className="form-group">
+                <label className="form-label">Phone *</label>
+                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="form-input" />
               </div>
               <div style={{ marginBottom: "20px" }}>
                 <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Phone *</label>
@@ -210,6 +224,11 @@ export default function CheckoutPage() {
                 <input type="text" name="address" required value={formData.address} onChange={handleChange} className="form-input" />
               </div>
               <div className="form-row">
+                <div>
+                  <label className="form-label">City *</label>
+                  <input type="text" name="city" required value={formData.city} onChange={handleChange} className="form-input" />
+                </div>
+                <div>
                 <div>
                   <label className="checkout-label">City *</label>
                   <input type="text" name="city" required value={formData.city} onChange={handleChange} className="checkout-input" />
@@ -284,6 +303,18 @@ export default function CheckoutPage() {
               </div>
             </div>
 
+            <div className="checkout-panel">
+              <h2 className="checkout-panel-title">Payment Method</h2>
+              <div className="payment-options">
+                <label className="payment-method-label">
+                  <input type="radio" name="paymentMethod" value="cod" checked={formData.paymentMethod === "cod"} onChange={handleChange} />
+                  <span>Cash on Delivery (COD)</span>
+                </label>
+                <label className="payment-method-label">
+                  <input type="radio" name="paymentMethod" value="card" checked={formData.paymentMethod === "card"} onChange={handleChange} />
+                  <span>Credit / Debit Card (coming soon)</span>
+                </label>
+                <label className="payment-method-label">
             <div className="checkout-section">
               <h2 className="checkout-section-title">Payment Method</h2>
               <div className="payment-options">
@@ -325,6 +356,7 @@ export default function CheckoutPage() {
             </div>
 
             {/* Submit button inside form so Enter key works */}
+            <div className="submit-wrap">
             <div className="checkout-submit-wrap">
               <button type="submit" disabled={isSubmitting} className="btn-primary" style={{ width: "100%", background: isSubmitting ? "var(--mid-gray)" : "var(--deep-violet)" }}>
               <button type="submit" disabled={isSubmitting} className="btn-primary checkout-submit-btn" style={{ background: isSubmitting ? "var(--mid-gray)" : "var(--deep-violet)" }}>
@@ -334,6 +366,10 @@ export default function CheckoutPage() {
           </form>
 
           {/* Order Summary */}
+          <div className="checkout-summary">
+            <div className="summary-title">Your Order</div>
+            {cart.map((item, idx) => (
+              <div key={idx} className="summary-item">
           <div className="order-summary-card">
             <div className="checkout-section-title">Your Order</div>
             {cart.map((item, idx) => (
@@ -354,6 +390,22 @@ export default function CheckoutPage() {
                 <span>LKR {(item.price * item.quantity).toLocaleString()}</span>
               </div>
             ))}
+            <div className="summary-totals">
+              <div className="summary-row">
+                <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>
+              </div>
+              <div className="summary-row">
+                <span>Shipping</span><span>{shipping === 0 ? "FREE" : `LKR ${shipping.toLocaleString()}`}</span>
+              </div>
+              <div className="summary-row">
+                <span>Tax (5%)</span><span>LKR {tax.toLocaleString()}</span>
+              </div>
+              <div className="summary-total-row">
+                <span>Total</span><span className="summary-total-price">LKR {total.toLocaleString()}</span>
+              </div>
+            </div>
+            <p className="summary-footer">
+              By placing an order, you agree to our <Link href="/terms" className="summary-link">Terms</Link> and <Link href="/privacy" className="summary-link">Privacy Policy</Link>.
             <div className="order-summary-details">
               <div className="order-summary-row">
                 <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>
