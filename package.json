@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "jest"
     "test": "RESEND_API_KEY=\"re_123\" node --import \"data:text/javascript,import { register } from 'node:module'; import { pathToFileURL } from 'node:url'; register(pathToFileURL('./test-loader.mjs'), pathToFileURL('./'));\" --test"
     "test": "node --experimental-vm-modules --test"
     "test": "node --experimental-loader ./test-loader.mjs --experimental-test-module-mocks --test \"**/*.test.js\""
@@ -32,6 +33,10 @@
   },
   "devDependencies": {
     "@prisma/client": "^5.22.0",
+    "cross-env": "^10.1.0",
+    "jest": "^30.4.2",
+    "prisma": "^5.22.0",
+    "tsx": "^4.21.0"
     "prisma": "^5.22.0",
     "glob": "^10.0.0"
     "@testing-library/dom": "^10.4.1",
