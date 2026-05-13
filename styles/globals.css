@@ -1618,6 +1618,7 @@ a.btn-primary, a.btn-small {
   text-align: center;
 }
 /* ─────────── CHECKOUT ─────────── */
+/* ─────────── FORMS AND CHECKOUT ─────────── */
 .checkout-wrap {
   padding: 140px 40px 80px;
   max-width: 1200px;
@@ -1625,6 +1626,7 @@ a.btn-primary, a.btn-small {
 }
 
 .checkout-heading {
+.checkout-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 48px;
   font-weight: 300;
@@ -1639,6 +1641,7 @@ a.btn-primary, a.btn-small {
 }
 
 .checkout-section {
+.checkout-panel {
   background: white;
   border: 0.5px solid var(--light-border);
   padding: 32px;
@@ -1646,6 +1649,7 @@ a.btn-primary, a.btn-small {
 }
 
 .checkout-section-title {
+.checkout-panel-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
   font-weight: 300;
@@ -1666,6 +1670,18 @@ a.btn-primary, a.btn-small {
 }
 
 .checkout-label {
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-label {
   font-size: 13px;
   display: block;
   margin-bottom: 8px;
@@ -1673,6 +1689,7 @@ a.btn-primary, a.btn-small {
 }
 
 .checkout-input {
+.form-input {
   width: 100%;
   padding: 12px;
   border: 0.5px solid var(--light-border);
@@ -1700,6 +1717,7 @@ a.btn-primary, a.btn-small {
 }
 
 .order-summary-box {
+.checkout-summary {
   background: white;
   border: 0.5px solid var(--light-border);
   padding: 32px;
@@ -1709,6 +1727,7 @@ a.btn-primary, a.btn-small {
 }
 
 .order-summary-title {
+.checkout-summary-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
   font-weight: 300;
@@ -1718,6 +1737,7 @@ a.btn-primary, a.btn-small {
 }
 
 .order-item-row {
+.checkout-summary-row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 16px;
@@ -1731,6 +1751,7 @@ a.btn-primary, a.btn-small {
 }
 
 .order-total-row {
+.checkout-summary-subrow {
   display: flex;
   justify-content: space-between;
   margin-bottom: 12px;
@@ -1738,6 +1759,13 @@ a.btn-primary, a.btn-small {
 }
 
 .order-grand-total {
+.checkout-summary-divider {
+  border-top: 0.5px solid var(--light-border);
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+.checkout-summary-total {
   display: flex;
   justify-content: space-between;
   font-weight: bold;
@@ -1800,4 +1828,10 @@ a.btn-primary, a.btn-small {
 .empty-checkout-text {
   margin-bottom: 32px;
   color: var(--mid-gray);
+}
+@media (max-width: 1024px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }

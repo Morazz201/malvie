@@ -100,6 +100,7 @@ export default function CheckoutPage() {
       <Toast message={toastMsg} visible={!!toastMsg} onClose={() => setToastMsg("")} />
       <div className="checkout-wrap">
         <h1 className="checkout-heading">Checkout</h1>
+        <h1 className="checkout-title">Checkout</h1>
         
         <div className="checkout-grid">
           {/* Billing Form */}
@@ -132,12 +133,42 @@ export default function CheckoutPage() {
                 <div>
                   <label className="checkout-label">Postal Code</label>
                   <input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} className="checkout-input" />
+            <div className="checkout-panel">
+              <h2 className="checkout-panel-title">Billing Details</h2>
+              <div className="form-row">
+                <div>
+                  <label className="form-label">Full Name *</label>
+                  <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="form-input" />
+                </div>
+                <div>
+                  <label className="form-label">Email *</label>
+                  <input type="email" name="email" required value={formData.email} onChange={handleChange} className="form-input" />
+                </div>
+              </div>
+              <div className="form-group">
+                <label className="form-label">Phone *</label>
+                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="form-input" />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Address *</label>
+                <input type="text" name="address" required value={formData.address} onChange={handleChange} className="form-input" />
+              </div>
+              <div className="form-row">
+                <div>
+                  <label className="form-label">City *</label>
+                  <input type="text" name="city" required value={formData.city} onChange={handleChange} className="form-input" />
+                </div>
+                <div>
+                  <label className="form-label">Postal Code</label>
+                  <input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} className="form-input" />
                 </div>
               </div>
             </div>
 
             <div className="checkout-section">
               <h2 className="checkout-section-title">Payment Method</h2>
+            <div className="checkout-panel" style={{ marginBottom: "0" }}>
+              <h2 className="checkout-panel-title">Payment Method</h2>
               <div className="payment-options">
                 <label className="payment-option">
                   <input type="radio" name="paymentMethod" value="cod" checked={formData.paymentMethod === "cod"} onChange={handleChange} />
@@ -167,6 +198,10 @@ export default function CheckoutPage() {
             <div className="order-summary-title">Your Order</div>
             {cart.map((item, idx) => (
               <div key={idx} className="order-item-row">
+          <div className="checkout-summary">
+            <div className="checkout-summary-title">Your Order</div>
+            {cart.map((item, idx) => (
+              <div key={idx} className="checkout-summary-row">
                 <span>{item.name} (x{item.quantity})</span>
                 <span>LKR {(item.price * item.quantity).toLocaleString()}</span>
               </div>
@@ -183,6 +218,18 @@ export default function CheckoutPage() {
               </div>
               <div className="order-grand-total">
                 <span>Total</span><span className="order-grand-total-val">LKR {total.toLocaleString()}</span>
+            <div className="checkout-summary-divider">
+              <div className="checkout-summary-subrow">
+                <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>
+              </div>
+              <div className="checkout-summary-subrow">
+                <span>Shipping</span><span>{shipping === 0 ? "FREE" : `LKR ${shipping.toLocaleString()}`}</span>
+              </div>
+              <div className="checkout-summary-subrow">
+                <span>Tax (5%)</span><span>LKR {tax.toLocaleString()}</span>
+              </div>
+              <div className="checkout-summary-total">
+                <span>Total</span><span style={{ color: "var(--deep-violet)" }}>LKR {total.toLocaleString()}</span>
               </div>
             </div>
             <p className="order-terms">
