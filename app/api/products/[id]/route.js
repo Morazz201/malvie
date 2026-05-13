@@ -6,17 +6,22 @@ import path from "path";
 // In Next.js 15+, `params` is a Promise – we must await it before using its properties
 export async function GET(request, { params }) {
   try {
-    const { id } = await params;                 // ✅ await the Promise
+    const { id } = await params; // ✅ await the Promise
     const product = await prisma.product.findUnique({ where: { id } });
-    if (!product) return NextResponse.json({ error: "Not found" }, { status: 404 });
+    if (!product)
+      return NextResponse.json({ error: "Not found" }, { status: 404 });
     return NextResponse.json(product);
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
   }
 }
 
 export async function PUT(request, { params }) {
   try {
+    const { id } = await params; // ✅ await the Promise
     // Authentication check
     const adminSession = request.cookies.get("admin_session")?.value;
     const adminSecret = process.env.ADMIN_SECRET;
@@ -32,12 +37,16 @@ export async function PUT(request, { params }) {
     });
     return NextResponse.json(product);
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
   }
 }
 
 export async function DELETE(request, { params }) {
   try {
+    const { id } = await params; // ✅ await the Promise
     // Authentication check
     const adminSession = request.cookies.get("admin_session")?.value;
     const adminSecret = process.env.ADMIN_SECRET;
@@ -62,6 +71,9 @@ export async function DELETE(request, { params }) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("DELETE error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
   }
 }
