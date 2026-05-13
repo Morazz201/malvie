@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 
 export async function POST(request) {
   try {
@@ -14,6 +15,14 @@ export async function POST(request) {
     }
 
     if (password === adminSecret) {
+      const cookieStore = await cookies();
+      cookieStore.set('admin_session', adminSecret, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+        path: '/',
+      });
+      return NextResponse.json({ success: true });
       const response = NextResponse.json({ success: true });
 
       response.cookies.set("admin_session", adminSecret, {
