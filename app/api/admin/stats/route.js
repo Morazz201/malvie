@@ -3,7 +3,13 @@ import { prisma } from "@/lib/prisma";
 
 export async function GET() {
   try {
-    const [totalOrders, totalRevenue, pendingOrders, totalCustomers, recentOrders] = await Promise.all([
+    const [
+      totalOrders,
+      totalRevenue,
+      pendingOrders,
+      totalCustomers,
+      recentOrders,
+    ] = await Promise.all([
       prisma.order.count(),
       prisma.order.aggregate({ _sum: { total: true } }),
       prisma.order.count({ where: { status: "PENDING" } }),
@@ -22,6 +28,9 @@ export async function GET() {
       recentOrders,
     });
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
   }
 }

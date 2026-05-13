@@ -15,8 +15,8 @@ export default function Ambassador() {
   return (
     <>
       <Toast message={toastMsg} visible={!!toastMsg} onClose={() => setToastMsg("")} />
-      <div style={{ padding: "140px 40px 80px", maxWidth: "800px", margin: "0 auto" }}>
-        <h1 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "52px", fontWeight: "300", fontStyle: "italic", marginBottom: "16px" }}>Become a Malvie Ambassador</h1>
+      <div className="info-page-wrap">
+        <h1 className="info-page-title" style={{ marginBottom: "16px" }}>Become a Malvie Ambassador</h1>
         <p style={{ color: "var(--mid-gray)", marginBottom: "40px" }}>Love Malvie? Join our ambassador program and receive exclusive perks, free products, and a community of like‑minded girls.</p>
         <form onSubmit={handleSubmit}>
           <input type="text" name="name" placeholder="Full name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} style={{ width: "100%", padding: "12px", marginBottom: "16px", border: "0.5px solid var(--light-border)" }} />
