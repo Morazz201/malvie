@@ -15,17 +15,17 @@ export default function Contact() {
   return (
     <>
       <Toast message={toastMsg} visible={!!toastMsg} onClose={() => setToastMsg("")} />
-      <div style={{ padding: "140px 40px 80px", maxWidth: "800px", margin: "0 auto" }}>
-        <h1 style={{ fontFamily: "'Cormorant Garamond'", fontSize: "52px", fontWeight: "300", fontStyle: "italic", marginBottom: "24px" }}>Contact Us</h1>
+      <div className="info-page-wrap">
+        <h1 className="info-page-title">Contact Us</h1>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }}>
           <div>
-            <h2 style={{ fontSize: "18px", fontWeight: "500", marginBottom: "12px" }}>Get in Touch</h2>
-            <p style={{ marginBottom: "8px" }}>📧 <a href="mailto:hello@malvie.lk" style={{ color: "var(--orchid)" }}>hello@malvie.lk</a></p>
+            <h2 className="info-section-title">Get in Touch</h2>
+            <p style={{ marginBottom: "8px" }}>📧 <a href="mailto:hello@malvie.lk" className="info-link">hello@malvie.lk</a></p>
             <p>📞 +94 77 123 4567 (Mon-Fri, 10am-6pm)</p>
             <div style={{ marginTop: "24px" }}>
               <h3 style={{ fontSize: "16px", fontWeight: "500", marginBottom: "12px" }}>Follow Us</h3>
-              <a href="https://instagram.com/malvie.lk" target="_blank" style={{ marginRight: "16px", color: "var(--orchid)" }}>Instagram</a>
-              <a href="#" style={{ color: "var(--orchid)" }}>TikTok</a>
+              <a href="https://instagram.com/malvie.lk" target="_blank" className="info-link" style={{ marginRight: "16px" }}>Instagram</a>
+              <a href="#" className="info-link">TikTok</a>
             </div>
           </div>
           <form onSubmit={handleSubmit}>
