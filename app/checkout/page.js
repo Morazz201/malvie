@@ -111,6 +111,21 @@ export default function CheckoutPage() {
               <h2 className="checkout-section-title">Billing Details</h2>
               <div className="form-row">
                 <div>
+                  <label className="checkout-label">Full Name *</label>
+                  <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="checkout-input" />
+                </div>
+                <div>
+                  <label className="checkout-label">Email *</label>
+                  <input type="email" name="email" required value={formData.email} onChange={handleChange} className="checkout-input" />
+                </div>
+              </div>
+              <div className="checkout-form-group">
+                <label className="checkout-label">Phone *</label>
+                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="checkout-input" />
+              </div>
+              <div className="checkout-form-group">
+                <label className="checkout-label">Address *</label>
+                <input type="text" name="address" required value={formData.address} onChange={handleChange} className="checkout-input" />
                   <label className="form-label">Full Name *</label>
                   <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="form-input" />
                 </div>
@@ -129,6 +144,12 @@ export default function CheckoutPage() {
               </div>
               <div className="form-row">
                 <div>
+                  <label className="checkout-label">City *</label>
+                  <input type="text" name="city" required value={formData.city} onChange={handleChange} className="checkout-input" />
+                </div>
+                <div>
+                  <label className="checkout-label">Postal Code</label>
+                  <input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} className="checkout-input" />
                   <label className="form-label">City *</label>
                   <input type="text" name="city" required value={formData.city} onChange={handleChange} className="form-input" />
                 </div>

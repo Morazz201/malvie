@@ -1636,6 +1636,13 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+
+/* ─────────── CHECKOUT FORM ─────────── */
+.checkout-form-group {
+  margin-bottom: 20px;
+}
+
+.checkout-label {
 /* ─────────── INFO PAGES ─────────── */
 .info-page-wrap {
   padding: 140px 40px 80px;
@@ -1725,11 +1732,13 @@ a.btn-primary, a.btn-small {
   color: var(--deep-violet);
 }
 
+.checkout-input {
 .form-input {
   width: 100%;
   padding: 12px;
   border: 0.5px solid var(--light-border);
   font-family: inherit;
+}
 }
 
 .payment-options {
