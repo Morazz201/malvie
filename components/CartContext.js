@@ -8,7 +8,7 @@ export function CartProvider({ children }) {
   const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
-    const stored = localStorage.getItem("malvieCart");
+    const stored = localStorage.getItem("cart");
     if (stored) {
       const parsed = JSON.parse(stored);
       setCart(parsed);
@@ -17,7 +17,7 @@ export function CartProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("malvieCart", JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
     setCartCount(cart.reduce((sum, item) => sum + item.quantity, 0));
   }, [cart]);
 

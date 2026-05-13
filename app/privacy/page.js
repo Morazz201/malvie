@@ -2,6 +2,8 @@ export default function Privacy() {
   return (
     <div className="info-page">
       <h1 className="info-title">Privacy Policy</h1>
+    <div className="info-page-wrap">
+      <h1 className="info-page-title">Privacy Policy</h1>
       <p>Last updated: January 2025</p>
       <p className="info-text">At Malvie, we respect your privacy. We collect only the information necessary to process your orders and improve your shopping experience. We never share your personal data with third parties without your consent.</p>
       <h2 className="info-subtitle-spaced">Information We Collect</h2>

@@ -8,12 +8,15 @@ export async function GET() {
       orderBy: { createdAt: "desc" },
     });
     // Add order count
-    const customersWithCount = customers.map(c => ({
+    const customersWithCount = customers.map((c) => ({
       ...c,
       orderCount: c.orders.length,
     }));
     return NextResponse.json(customersWithCount);
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
   }
 }

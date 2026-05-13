@@ -15,6 +15,8 @@ export default function FAQ() {
   return (
     <div className="info-page">
       <h1 className="info-title" style={{ marginBottom: "40px" }}>Frequently Asked Questions</h1>
+    <div className="info-page-wrap">
+      <h1 className="info-page-title" style={{ marginBottom: "40px" }}>Frequently Asked Questions</h1>
       {faqs.map((faq, idx) => (
         <div key={idx} className="faq-item">
           <button onClick={() => setOpenIndex(openIndex === idx ? null : idx)} className="faq-question">

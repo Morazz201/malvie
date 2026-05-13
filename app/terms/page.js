@@ -2,6 +2,8 @@ export default function Terms() {
   return (
     <div className="info-page">
       <h1 className="info-title">Terms of Service</h1>
+    <div className="info-page-wrap">
+      <h1 className="info-page-title">Terms of Service</h1>
       <p>By using Malvie's website, you agree to these terms.</p>
       <h2 className="info-subtitle-spaced">Products</h2>
       <p>We strive to display accurate product descriptions and colors. However, slight variations may occur due to screen settings.</p>

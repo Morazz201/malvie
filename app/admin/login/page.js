@@ -23,7 +23,7 @@ export default function AdminLogin() {
 
       const data = await res.json();
       if (res.ok) {
-        localStorage.setItem("adminAuthenticated", "true");
+        // localStorage.setItem removed for security
         setToastMsg("✅ Login successful! Redirecting...");
         setTimeout(() => router.push("/admin"), 1000);
       } else {
