@@ -431,6 +431,18 @@ export default function CheckoutPage() {
                 <span>LKR {(item.price * item.quantity).toLocaleString()}</span>
               </div>
             ))}
+            <div style={{ borderTop: "0.5px solid var(--light-border)", marginTop: "16px", paddingTop: "16px" }}>
+              <div className="summary-row">
+                <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>
+              </div>
+              <div className="summary-row">
+                <span>Shipping</span><span>{shipping === 0 ? "FREE" : `LKR ${shipping.toLocaleString()}`}</span>
+              </div>
+              <div className="summary-row">
+                <span>Tax (5%)</span><span>LKR {tax.toLocaleString()}</span>
+              </div>
+              <div className="summary-total">
+                <span>Total</span><span className="total-value">LKR {total.toLocaleString()}</span>
             <div className="order-totals">
               <div className="order-totals-row">
                 <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>
