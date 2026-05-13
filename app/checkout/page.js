@@ -163,30 +163,30 @@ export default function CheckoutPage() {
           </form>
 
           {/* Order Summary */}
-          <div style={{ background: "white", border: "0.5px solid var(--light-border)", padding: "32px", height: "fit-content", position: "sticky", top: "100px" }}>
-            <div style={{ fontFamily: "'Cormorant Garamond'", fontSize: "22px", fontWeight: "300", marginBottom: "24px", paddingBottom: "12px", borderBottom: "0.5px solid var(--light-border)" }}>Your Order</div>
+          <div className="order-summary">
+            <div className="order-summary-title">Your Order</div>
             {cart.map((item, idx) => (
-              <div key={idx} style={{ display: "flex", justifyContent: "space-between", marginBottom: "16px", fontSize: "14px" }}>
+              <div key={idx} className="order-summary-item">
                 <span>{item.name} (x{item.quantity})</span>
                 <span>LKR {(item.price * item.quantity).toLocaleString()}</span>
               </div>
             ))}
-            <div style={{ borderTop: "0.5px solid var(--light-border)", marginTop: "16px", paddingTop: "16px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px", fontSize: "14px" }}>
+            <div className="order-summary-totals">
+              <div className="order-summary-row">
                 <span>Subtotal</span><span>LKR {subtotal.toLocaleString()}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px", fontSize: "14px" }}>
+              <div className="order-summary-row">
                 <span>Shipping</span><span>{shipping === 0 ? "FREE" : `LKR ${shipping.toLocaleString()}`}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px", fontSize: "14px" }}>
+              <div className="order-summary-row">
                 <span>Tax (5%)</span><span>LKR {tax.toLocaleString()}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", fontWeight: "bold", fontSize: "18px", marginTop: "12px", paddingTop: "12px", borderTop: "1px solid var(--light-border)" }}>
-                <span>Total</span><span style={{ color: "var(--deep-violet)" }}>LKR {total.toLocaleString()}</span>
+              <div className="order-summary-total-row">
+                <span>Total</span><span className="order-summary-total-val">LKR {total.toLocaleString()}</span>
               </div>
             </div>
-            <p style={{ fontSize: "12px", textAlign: "center", marginTop: "16px", color: "var(--mid-gray)" }}>
-              By placing an order, you agree to our <Link href="/terms" style={{ color: "var(--orchid)" }}>Terms</Link> and <Link href="/privacy" style={{ color: "var(--orchid)" }}>Privacy Policy</Link>.
+            <p className="order-summary-terms">
+              By placing an order, you agree to our <Link href="/terms" className="order-summary-link">Terms</Link> and <Link href="/privacy" className="order-summary-link">Privacy Policy</Link>.
             </p>
           </div>
         </div>
