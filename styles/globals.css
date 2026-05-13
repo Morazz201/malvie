@@ -1664,6 +1664,8 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+/* ─────────── SIZE GUIDE PAGE ─────────── */
+.size-guide-container {
 /* ─────────── CHECKOUT PAGE ─────────── */
 .empty-checkout {
   padding: 160px 40px;
@@ -1699,11 +1701,39 @@ a.btn-primary, a.btn-small {
   margin: 0 auto;
 }
 
+.size-guide-heading {
 .info-page-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 52px;
   font-weight: 300;
   font-style: italic;
+  margin-bottom: 32px;
+}
+
+.size-guide-table-wrap {
+  overflow-x: auto;
+}
+
+.size-guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.size-guide-table thead {
+  background: var(--soft-pastel);
+}
+
+.size-guide-table th,
+.size-guide-table td {
+  padding: 12px;
+  border: 1px solid var(--light-border);
+}
+
+.size-guide-note {
+  margin-top: 32px;
+  color: var(--mid-gray);
+  font-size: 14px;
   margin-bottom: 24px;
 }
 
