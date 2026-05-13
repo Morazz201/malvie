@@ -144,6 +144,11 @@ export default function CheckoutPage() {
                 </div>
                 <div className="form-group">
                 <div>
+                  <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Full Name *</label>
+                  <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="form-input" />
+                </div>
+                <div>
+                  <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Email *</label>
                   <label className="form-label">Full Name *</label>
                   <input type="text" name="fullName" required value={formData.fullName} onChange={handleChange} className="form-input" />
                 </div>
@@ -153,6 +158,12 @@ export default function CheckoutPage() {
                 </div>
               </div>
               <div style={{ marginBottom: "20px" }}>
+                <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Phone *</label>
+                <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="form-input" />
+              </div>
+              <div style={{ marginBottom: "20px" }}>
+                <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Address *</label>
+                <input type="text" name="address" required value={formData.address} onChange={handleChange} className="form-input" />
                 <label className="form-label">Phone *</label>
                 <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className="form-input" />
               </div>
@@ -258,6 +269,11 @@ export default function CheckoutPage() {
               </div>
               <div className="form-row">
                 <div>
+                  <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>City *</label>
+                  <input type="text" name="city" required value={formData.city} onChange={handleChange} className="form-input" />
+                </div>
+                <div>
+                  <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Postal Code</label>
                   <label className="form-label">City *</label>
                   <input type="text" name="city" required value={formData.city} onChange={handleChange} className="form-input" />
                 </div>

@@ -1664,6 +1664,7 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+/* Form Input Styles */
 /* Form elements */
 /* ─────────── SIZE GUIDE PAGE ─────────── */
 .size-guide-container {
@@ -1818,6 +1819,16 @@ a.btn-primary, a.btn-small {
   padding: 12px;
   border: 0.5px solid var(--light-border);
   font-family: inherit;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--orchid);
+}
+
+.contact-form .form-input, .ambassador-form .form-input {
+  margin-bottom: 16px;
   transition: border-color 0.2s ease;
 }
 

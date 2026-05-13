@@ -28,10 +28,10 @@ export default function Contact() {
               <a href="#" className="info-link">TikTok</a>
             </div>
           </div>
-          <form onSubmit={handleSubmit}>
-            <input type="text" name="name" placeholder="Your name" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} style={{ width: "100%", padding: "12px", marginBottom: "16px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
-            <input type="email" name="email" placeholder="Your email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} style={{ width: "100%", padding: "12px", marginBottom: "16px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
-            <textarea name="message" placeholder="Your message" required rows="5" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} style={{ width: "100%", padding: "12px", marginBottom: "16px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }}></textarea>
+          <form onSubmit={handleSubmit} className="contact-form">
+            <input type="text" name="name" placeholder="Your name" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="form-input" />
+            <input type="email" name="email" placeholder="Your email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="form-input" />
+            <textarea name="message" placeholder="Your message" required rows="5" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="form-input"></textarea>
             <button type="submit" className="btn-primary">Send Message</button>
           </form>
         </div>
