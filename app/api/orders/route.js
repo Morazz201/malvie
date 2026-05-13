@@ -105,12 +105,6 @@ export async function POST(request) {
       <p>We'll notify you once your order ships.</p>
       <p>Love,<br/>The Malvie Team</p>
     `;
-    await resend.emails.send({
-      from: 'Malvie <orders@malvie.lk>',
-      to: [customer.email],
-      subject: `Order Confirmation #${order.id.slice(-8)}`,
-      html: customerEmailHtml,
-    });
 
     // Send email to shop admin
     const shopEmailHtml = `
@@ -122,12 +116,22 @@ export async function POST(request) {
       <p><strong>Total: LKR ${totals.total.toLocaleString()}</strong></p>
       <p><a href="${process.env.NEXTAUTH_URL}/admin/orders">View in Admin Panel</a></p>
     `;
-    await resend.emails.send({
-      from: 'Malvie <notifications@malvie.lk>',
-      to: [process.env.ADMIN_EMAIL],
-      subject: `New Order #${order.id.slice(-8)}`,
-      html: shopEmailHtml,
-    });
+
+    // Send emails asynchronously
+    Promise.all([
+      resend.emails.send({
+        from: 'Malvie <orders@malvie.lk>',
+        to: [customer.email],
+        subject: `Order Confirmation #${order.id.slice(-8)}`,
+        html: customerEmailHtml,
+      }),
+      resend.emails.send({
+        from: 'Malvie <notifications@malvie.lk>',
+        to: [process.env.ADMIN_EMAIL],
+        subject: `New Order #${order.id.slice(-8)}`,
+        html: shopEmailHtml,
+      })
+    ]).catch(error => console.error("Error sending emails:", error));
 
     return NextResponse.json({ success: true, orderId: order.id }, { status: 201 });
   } catch (error) {
