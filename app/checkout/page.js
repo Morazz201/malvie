@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useCart } from "@/components/CartContext";
 import Link from "next/link";
 import Toast from "@/components/Toast";
+import { countries } from "@/lib/countries";
 
 export default function CheckoutPage() {
   const { cart, clearCart } = useCart();
@@ -10,6 +11,7 @@ export default function CheckoutPage() {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
+    countryCode: "+94",
     phone: "",
     address: "",
     city: "",
@@ -47,8 +49,8 @@ export default function CheckoutPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!/^\d{10}$/.test(formData.phone)) {
-      setToastMsg("❌ Please enter a valid 10-digit phone number.");
+    if (!/^\d+$/.test(formData.phone) || formData.phone.length < 7 || formData.phone.length > 15) {
+      setToastMsg("❌ Please enter a valid phone number (7-15 digits).");
       return;
     }
 
@@ -63,7 +65,7 @@ export default function CheckoutPage() {
           customer: {
             fullName: formData.fullName,
             email: formData.email,
-            phone: formData.phone,
+            phone: `${formData.countryCode} ${formData.phone}`,
             address: formData.address,
             city: formData.city,
             postalCode: formData.postalCode,
@@ -124,7 +126,14 @@ export default function CheckoutPage() {
               </div>
               <div style={{ marginBottom: "20px" }}>
                 <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Phone *</label>
-                <input type="tel" name="phone" required pattern="[0-9]{10}" value={formData.phone} onChange={handleChange} style={{ width: "100%", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                <div style={{ display: "flex", gap: "12px" }}>
+                  <select name="countryCode" value={formData.countryCode} onChange={handleChange} style={{ width: "120px", padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit", background: "white" }}>
+                    {countries.map(c => (
+                      <option key={c.code} value={c.dial_code}>{c.code} ({c.dial_code})</option>
+                    ))}
+                  </select>
+                  <input type="tel" name="phone" required pattern="[0-9]{7,15}" value={formData.phone} onChange={handleChange} style={{ flex: 1, padding: "12px", border: "0.5px solid var(--light-border)", fontFamily: "inherit" }} />
+                </div>
               </div>
               <div style={{ marginBottom: "20px" }}>
                 <label style={{ fontSize: "13px", display: "block", marginBottom: "8px", color: "var(--deep-violet)" }}>Address *</label>
