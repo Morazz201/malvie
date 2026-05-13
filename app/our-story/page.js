@@ -1,5 +1,8 @@
 export default function OurStory() {
   return (
+    <div className="info-page-wrap">
+      <h1 className="info-page-title">Our Story</h1>
+      <p style={{ marginBottom: "20px" }}>Malvie was born from a simple belief — that fashion should feel as beautiful as it looks. That young Sri Lankan women deserve a brand that truly speaks their language.</p>
     <div className="our-story-page">
       <h1 className="our-story-title">Our Story</h1>
       <p className="our-story-text">Malvie was born from a simple belief — that fashion should feel as beautiful as it looks. That young Sri Lankan women deserve a brand that truly speaks their language.</p>
