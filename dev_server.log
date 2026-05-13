@@ -5,6 +5,9 @@
 ▲ Next.js 16.2.6 (Turbopack)
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
+✓ Ready in 485ms
+
+ GET /size-guide 200 in 3.9s (next.js: 3.4s, application-code: 509ms)
 - Environments: .env
 ✓ Ready in 503ms
 

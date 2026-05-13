@@ -1664,6 +1664,8 @@ a.btn-primary, a.btn-small {
   text-decoration: none;
   text-align: center;
 }
+/* Size Guide Page */
+.size-guide-container {
 /* Info Pages */
 .info-page {
 
@@ -1716,6 +1718,7 @@ a.btn-primary, a.btn-small {
   max-width: 800px;
   margin: 0 auto;
 }
+.size-guide-title {
 
 .info-title {
 .size-guide-heading {
@@ -1726,6 +1729,9 @@ a.btn-primary, a.btn-small {
   font-style: italic;
   margin-bottom: 32px;
 }
+.size-guide-table-wrapper {
+  overflow-x: auto;
+}
 
 .size-guide-table-wrap {
   overflow-x: auto;
@@ -1735,6 +1741,9 @@ a.btn-primary, a.btn-small {
   width: 100%;
   border-collapse: collapse;
   text-align: center;
+}
+.size-guide-table thead {
+  background: var(--soft-pastel);
 }
 
 .size-guide-table thead {

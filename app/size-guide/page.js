@@ -1,6 +1,8 @@
 export default function SizeGuide() {
   return (
     <div className="size-guide-container">
+      <h1 className="size-guide-title">Size Guide</h1>
+      <div className="size-guide-table-wrapper">
       <h1 className="size-guide-heading">Size Guide</h1>
       <div className="size-guide-table-wrap">
         <table className="size-guide-table">
@@ -53,6 +55,7 @@ export default function SizeGuide() {
         </table>
       </div>
       <p className="size-guide-note">
+        All Malvie tees are oversized fit. For a more relaxed look, we recommend your usual size or size up once for an extra slouchy feel. For a fitted look, size down once.
         All Malvie tees are oversized fit. For a more relaxed look, we recommend
         your usual size or size up once for an extra slouchy feel. For a fitted
         look, size down once.
